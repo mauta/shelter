@@ -1,0 +1,27 @@
+.about{
+  @include big_screen;
+  display: flex;
+  padding-top: 80px;
+  padding-left: 175px;
+  padding-bottom: 89px;
+
+}
+
+.about__content{
+  width: 430px;
+  padding-top: 15px;
+}
+
+.about__title{
+  @include title;
+  margin-bottom: 24px;
+}
+
+.about__text{
+  @include font-second;
+  margin-bottom: 25px;
+}
+
+.about__img{
+  margin-right: 120px;
+}

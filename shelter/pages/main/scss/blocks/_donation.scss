@@ -1,0 +1,66 @@
+.donation {
+  background-color: $basic-light;
+}
+
+.donation__wrap {
+  @include big_screen;
+  display: flex;
+  align-items: center;
+  padding-top: 82px;
+  padding-left: 142px;
+  padding-bottom: 101px;
+}
+
+.donation__content {
+  width: 430px;
+}
+
+.donation__title {
+  @include title;
+  margin-bottom: 20px;
+}
+
+.donation__bank {
+  @include font-main;
+  color: $basic-dark;
+  font-size: 15px;
+  line-height: 110%;
+  letter-spacing: 0.06em;
+  margin-bottom: 20px;
+}
+
+.donation__acount{
+  background-color: $base-pink;
+  color: $basic-dark;
+  width: 349px;
+  height: 43px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  border-radius: 9px;
+  border: none;
+  font-family: $main-font;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 23px;
+  outline: none;
+  padding-left: 42px;
+  letter-spacing: 0.06em;
+  margin-bottom: 20px;
+}
+
+.donation__text {
+  width: 380px;
+  font-family: $text-font;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 18px;
+  font-style: italic;
+  color: $gray;
+}
+
+.donation__img {
+  margin-right: 30px;
+}

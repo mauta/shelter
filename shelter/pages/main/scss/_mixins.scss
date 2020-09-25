@@ -38,17 +38,32 @@
 }
 
 @mixin title {
+  font-family: $main-font;
   font-size: 35px;
+  font-weight: normal;
   line-height: 45px;
   letter-spacing: 0.06em;
 }
+
+
+
+@mixin subtitle {
+  font-family: $main-font;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 23px;
+  text-align: center;
+  letter-spacing: 0.06em;
+  color: $basic-dark;
+}
+
 
 @mixin color-button {
   box-sizing: border-box;
   display: flex;
   justify-content: center;
-  align-items: center;
-  background-color: $base-pink;
+  align-items: center;  
   border-radius: 26px;
   border: none;
   font-family: $main-font;
@@ -58,4 +73,5 @@
   line-height: 19px;
   letter-spacing: 1px;
   color: $basic-too-dark;
+  height: 52px;
 }

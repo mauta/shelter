@@ -1,0 +1,67 @@
+.footer {
+  background:
+    url(../../assets/images/noise_transparent.png), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
+}
+
+.footer__wrap {
+  @include big_screen;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  padding-top: 40px;
+}
+
+.footer__title {
+  font-family: $main-font;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 35px;
+  line-height: 45px;  
+  letter-spacing: 0.06em;
+  color: $white;
+  margin-bottom: 44px;
+
+  &-location{
+    margin-bottom: 32px;
+  }
+  
+}
+
+.footer__text {
+  display: block;
+  font-family: $main-font;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 115%;
+  letter-spacing: 0.06em;
+  color: $base-pink;
+  padding-left: 60px;
+  margin-bottom: 50px;
+}
+
+.footer__contacts{
+  box-sizing: border-box;
+  width: 280px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 22px;
+}
+
+.footer__location{
+  box-sizing: border-box;
+  padding-top: 22px;
+  width: 302px;
+  height: 229px;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer__address{
+  padding-left: 41px;
+  margin-bottom: 38px;
+}
+
+.footer__img{
+}
