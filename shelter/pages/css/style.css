@@ -1,0 +1,155 @@
+@charset "UTF-8";
+/* Это точка входа для всех стилей. Подключите сюда все файлы стилей, которые должны быть на странице.*/
+/* Здесь хранятся все переменные стилей проекта. Указанные ниже переменные приведены в качестве демонстрации. */
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+body {
+  width: 1920px;
+  color: #545454;
+  font-family: "Georgia", "Arial", sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  margin: 0 auto;
+  padding: 0;
+}
+
+p, h2, h3 {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.header {
+  width: 1200px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-top: 60px;
+}
+
+.nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding-top: 16px;
+}
+
+.nav__item {
+  margin-left: 35px;
+}
+
+.nav__link {
+  font-family: "Arial", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 24px;
+  font-size: 15px;
+  line-height: 24px;
+  color: #CDCDCD;
+}
+
+.start {
+  margin-top: -124px;
+  padding-top: 360px;
+  padding-bottom: 257px;
+  background: url(../img/start-screen-puppy.png) no-repeat 862px bottom, url(../img/start-screen-background.jpg) no-repeat;
+}
+
+.start__wrap {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.start__title {
+  font-family: "Georgia", "Arial", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  color: #FFFFFF;
+  width: 310px;
+  margin: 0;
+  margin-bottom: 29px;
+  font-size: 44px;
+  line-height: 57px;
+  color: #ffffff;
+}
+
+.start__text {
+  font-family: "Arial", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 24px;
+  width: 460px;
+  margin: 0;
+  margin-bottom: 40px;
+  color: #CDCDCD;
+}
+
+.start__button {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #F1CDB3;
+  border-radius: 26px;
+  border: none;
+  font-family: "Georgia", "Arial", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17px;
+  line-height: 19px;
+  letter-spacing: 1px;
+  color: #292929;
+  width: 200px;
+  height: 52px;
+}
