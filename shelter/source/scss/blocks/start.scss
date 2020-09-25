@@ -1,0 +1,39 @@
+.start {
+  margin-top: -124px;
+  padding-top: 360px;
+  padding-bottom: 257px;
+  background:
+   url(../img/start-screen-puppy.png) no-repeat 862px bottom,
+   url(../img/start-screen-background.jpg) no-repeat;
+
+}
+
+
+.start__wrap {
+  @include big_screen;
+}
+
+.start__title {
+  @include font-main;
+  width: 310px;
+  margin: 0;
+  margin-bottom: 29px;
+  font-size: 44px;
+  line-height: 57px;
+  color: $white;
+
+}
+
+.start__text {
+  @include font-second;
+  width: 460px;
+  margin: 0;
+  margin-bottom: 40px;
+  color: $basic-light;
+}
+
+.start__button{
+  @include color-button;
+  width: 200px;
+  height: 52px;
+}

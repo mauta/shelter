@@ -1,0 +1,61 @@
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+@mixin list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+}
+
+
+@mixin font-main {
+  font-family: $main-font;
+  font-style: normal;
+  font-weight: normal;
+  color: #FFFFFF;
+}
+
+@mixin font-second {
+  font-family: $text-font;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 24px;
+}
+
+@mixin big_screen {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+@mixin title {
+  font-size: 35px;
+  line-height: 45px;
+  letter-spacing: 0.06em;
+}
+
+@mixin color-button {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $base-pink;
+  border-radius: 26px;
+  border: none;
+  font-family: $main-font;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17px;
+  line-height: 19px;
+  letter-spacing: 1px;
+  color: $basic-too-dark;
+}
