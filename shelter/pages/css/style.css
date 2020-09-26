@@ -628,4 +628,15 @@ a {
 .footer__address {
   padding-left: 41px;
   margin-bottom: 38px;
+  position: relative;
+}
+
+.footer__address::before {
+  display: block;
+  position: absolute;
+  content: url(../../assets/images/icon-marker.svg);
+  width: 22px;
+  height: 32px;
+  top: 0;
+  left: 0;
 }
