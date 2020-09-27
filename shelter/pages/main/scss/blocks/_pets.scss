@@ -33,17 +33,22 @@
   position: relative;
   background-color: transparent;
 
-  &:disabled {
-    border: 2px solid $btn-light;    
-  }
-
-  
   &:hover,
   &:active,
   &:focus {
     border: none;
   }
 
+  &:disabled,
+  &[disabled] {
+    border: 2px solid $btn-light;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: transparent;
+    }
+  }
 
 }
 
@@ -72,6 +77,12 @@
 
   &:disabled {
     border: 2px solid $btn-light;
+
+    &:hover::after,
+    &:active::after,
+    &:focus::after {
+      top: 12px
+    }
   }
 
 }
@@ -100,8 +111,16 @@
 
   &:disabled {
     border: 2px solid $btn-light;
+
+    &:hover::after,
+    &:active::after,
+    &:focus::after {
+      top: 30px
+    }
   }
 }
+
+
 
 .pets__button {
   grid-column-start: 2;
@@ -128,7 +147,7 @@
   padding-bottom: 30px;
   background: #FAFAFA;
 
-  &:hover{
+  &:hover {
     box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
     background-color: $white;
   }
