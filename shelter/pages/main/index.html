@@ -20,10 +20,10 @@
           width="184" height="60">
       </a>
       <ul class="nav">
-        <li class="nav__item"><a href="" class="nav__link">About the shelter</a></li>
-        <li class="nav__item"><a href="" class="nav__link">Our pets </a></li>
-        <li class="nav__item"><a href="" class="nav__link">Help the shelter</a></li>
-        <li class="nav__item"><a href="" class="nav__link">Contacts </a></li>
+        <li class="nav__item"><a href="#about" class="nav__link">About the shelter</a></li>
+        <li class="nav__item"><a href="#ourpets" class="nav__link">Our pets </a></li>
+        <li class="nav__item"><a href="#help" class="nav__link">Help the shelter</a></li>
+        <li class="nav__item"><a href="#contacts" class="nav__link">Contacts </a></li>
       </ul>
     </header>
     <div class="start__wrap">
@@ -39,6 +39,7 @@
   </section>
   <main>
     <section class="about">
+      <a name="about"></a>
       <img class="about__img" src="../../assets/images/about-pets.png" alt="" width="300" height="408">
       <div class="about__content">
         <h3 class="about__title">About the shelter<br> “Cozy House” </h3>
@@ -53,10 +54,11 @@
     </section>
 
     <section class="pets">
+      <a name="ourpets"></a>
       <div class="pets__wrap">
         <h3 class="pets__title">Our friends who<br>
           are looking for a house</h3>
-        <button class="pets__slide-btn pets__slide-btn--previous" aria-label="предыдущий"></button>
+        <button class="pets__slide-btn pets__slide-btn--previous" aria-label="предыдущий" disabled></button>
         <div class="pets__slider slider">
           <ul class="slider__list">
             <li class="slider__item">
@@ -82,6 +84,7 @@
     </section>
 
     <section class="help">
+      <a name="help"></a>
       <h3 class="help__title">How you can help<br>
         our shelter</h3>
       <ul class="help__list">
@@ -118,10 +121,6 @@
           <p class="help__name">Collars / leashes</p>
         </li>
         <li class="help__item">
-          <img class="help__img" src="../../assets/images/icon-collars-leashes.svg" alt="" width="60" height="60">
-          <p class="help__name">Collars / leashes</p>
-        </li>
-        <li class="help__item">
           <img class="help__img" src="../../assets/images/icon-sleeping-area.svg" alt="" width="60" height="60">
           <p class="help__name">Sleeping areas</p>
         </li>
@@ -136,13 +135,16 @@
           <h3 class="donation__title">You can also<br> make a donation</h3>
           <p class="donation__bank"> Name of the bank / Type of bank account</p>
           <a class="donation__acount" href="">8380 2880 8028 8791 7435</a>
-          <p class="donation__text">Legal information and lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a ipsum at libero sagittis dignissim sed ac diam. Praesent ultrices maximus tortor et vulputate. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
+          <p class="donation__text">Legal information and lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Maecenas a ipsum at libero sagittis dignissim sed ac diam. Praesent ultrices maximus tortor et vulputate.
+            Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
         </div>
       </div>
 
     </section>
   </main>
   <footer class="footer">
+    <a name="contacts"></a>
     <div class="footer__wrap">
       <div class="footer__contacts">
         <h3 class="footer__title">For questions and suggestions</h3>
@@ -151,8 +153,8 @@
       </div>
       <div class="footer__location">
         <h3 class="footer__title footer__title-location">We are waiting for your visit</h3>
-        <a class="footer__address footer__text" href="">1 Central Street, Boston (entrance from the store)</a>
-        <a class="footer__address footer__text" href="">18 South Park, London </a>
+        <a class="footer__address footer__text" target="_blank" href="https://goo.gl/maps/KGeA33zHNnKaiJqWA">1 Central Street, Boston (entrance from the store)</a>
+        <a class="footer__address footer__text" target="_blank" href="https://goo.gl/maps/yWAZfNBDD4EUCJwz5">18 South Park, London </a>
 
       </div>
       <img class="footer__img" src="../../assets/images/footer-puppy.png" alt="" width="300" height="315">

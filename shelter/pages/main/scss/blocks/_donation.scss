@@ -30,6 +30,7 @@
 }
 
 .donation__acount{
+  position: relative;
   background-color: $base-pink;
   color: $basic-dark;
   width: 349px;
@@ -49,6 +50,16 @@
   padding-left: 42px;
   letter-spacing: 0.06em;
   margin-bottom: 20px;
+
+  &::before{
+    display: block;
+    position: absolute;
+    content: url(../../assets/images/credit-card.svg);
+    width: 22px;
+    height: 32px;   
+    left: 15px;
+    top: 10px;
+  }
 }
 
 .donation__text {

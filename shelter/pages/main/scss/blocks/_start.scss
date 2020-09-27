@@ -25,9 +25,11 @@
 
 .nav__link {
   @include font-second;
+  @include link;
   font-size: 15px;
   line-height: 24px;
   color: $basic-light;
+  padding-bottom: 4px;
 }
 
 

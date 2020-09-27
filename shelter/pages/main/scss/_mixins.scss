@@ -16,6 +16,19 @@
 
 }
 
+@mixin link{
+  &:hover{
+    cursor: pointer;
+  }
+
+  &:active,
+  &:focus{
+    border-bottom: 3px solid $base-pink;
+    outline: none;
+  }
+
+}
+
 
 @mixin font-main {
   font-family: $main-font;
@@ -35,6 +48,7 @@
 @mixin big_screen {
   width: 1200px;
   margin: 0 auto;
+
 }
 
 @mixin title {
@@ -74,4 +88,16 @@
   letter-spacing: 1px;
   color: $basic-too-dark;
   height: 52px;
+  outline: none;
+  cursor: pointer;
+
+  &:hover{
+    background-color: $light-pink;
+  }
+
+  &:active,
+  &:focus{
+    background-color: $light-pink;
+    opacity: 0.7;
+    }
 }

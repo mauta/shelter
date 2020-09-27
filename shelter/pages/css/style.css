@@ -23,7 +23,9 @@ body {
   padding: 0;
 }
 
-p, h2, h3 {
+p,
+h2,
+h3 {
   margin: 0;
   padding: 0;
 }
@@ -93,6 +95,16 @@ a {
   font-size: 15px;
   line-height: 24px;
   color: #F6F6F6;
+  padding-bottom: 4px;
+}
+
+.nav__link:hover {
+  cursor: pointer;
+}
+
+.nav__link:active, .nav__link:focus {
+  border-bottom: 3px solid #F1CDB3;
+  outline: none;
 }
 
 .start__wrap {
@@ -159,8 +171,19 @@ a {
   letter-spacing: 1px;
   color: #292929;
   height: 52px;
+  outline: none;
+  cursor: pointer;
   background-color: #F1CDB3;
   width: 207px;
+}
+
+.start__button:hover {
+  background-color: #FDDCC4;
+}
+
+.start__button:active, .start__button:focus {
+  background-color: #FDDCC4;
+  opacity: 0.7;
 }
 
 .about {
@@ -237,10 +260,11 @@ a {
 }
 
 .pets__slide-btn {
-  width: 52px;
-  height: 52px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  width: 52px;
+  height: 52px;
+  box-sizing: border-box;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -260,9 +284,28 @@ a {
   letter-spacing: 1px;
   color: #292929;
   height: 52px;
+  outline: none;
+  cursor: pointer;
   border: 2px solid #F1CDB3;
   position: relative;
   background-color: transparent;
+}
+
+.pets__slide-btn:hover {
+  background-color: #FDDCC4;
+}
+
+.pets__slide-btn:active, .pets__slide-btn:focus {
+  background-color: #FDDCC4;
+  opacity: 0.7;
+}
+
+.pets__slide-btn:disabled {
+  border: 2px solid #CDCDCD;
+}
+
+.pets__slide-btn:hover, .pets__slide-btn:active, .pets__slide-btn:focus {
+  border: none;
 }
 
 .pets__slide-btn--previous {
@@ -285,6 +328,14 @@ a {
   top: 12px;
 }
 
+.pets__slide-btn--previous:hover::after, .pets__slide-btn--previous:active::after, .pets__slide-btn--previous:focus::after {
+  top: 14px;
+}
+
+.pets__slide-btn--previous:disabled {
+  border: 2px solid #CDCDCD;
+}
+
 .pets__slide-btn--next {
   -ms-grid-column: 3;
       grid-column-start: 3;
@@ -305,6 +356,14 @@ a {
   top: 30px;
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
+}
+
+.pets__slide-btn--next:hover::after, .pets__slide-btn--next:active::after, .pets__slide-btn--next:focus::after {
+  top: 32px;
+}
+
+.pets__slide-btn--next:disabled {
+  border: 2px solid #CDCDCD;
 }
 
 .pets__button {
@@ -332,11 +391,22 @@ a {
   letter-spacing: 1px;
   color: #292929;
   height: 52px;
+  outline: none;
+  cursor: pointer;
   margin: 0 auto;
   width: 261px;
   background-color: #F1CDB3;
   margin-top: 60px;
   margin-bottom: 100px;
+}
+
+.pets__button:hover {
+  background-color: #FDDCC4;
+}
+
+.pets__button:active, .pets__button:focus {
+  background-color: #FDDCC4;
+  opacity: 0.7;
 }
 
 .slider__list {
@@ -360,6 +430,12 @@ a {
   padding-top: 30px;
   padding-bottom: 30px;
   background: #FAFAFA;
+}
+
+.slider__item:hover {
+  -webkit-box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+          box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+  background-color: #ffffff;
 }
 
 .slider__img {
@@ -402,11 +478,26 @@ a {
   letter-spacing: 1px;
   color: #292929;
   height: 52px;
+  outline: none;
+  cursor: pointer;
   margin: 0 auto;
   width: 187px;
   border: 2px solid #F1CDB3;
   box-sizing: border-box;
   border-radius: 100px;
+}
+
+.slider__btn:hover {
+  background-color: #FDDCC4;
+}
+
+.slider__btn:active, .slider__btn:focus {
+  background-color: #FDDCC4;
+  opacity: 0.7;
+}
+
+.slider__btn:hover, .slider__btn:active, .slider__btn:focus {
+  border: none;
 }
 
 .help {
@@ -507,6 +598,7 @@ a {
 }
 
 .donation__acount {
+  position: relative;
   background-color: #F1CDB3;
   color: #545454;
   width: 349px;
@@ -533,6 +625,16 @@ a {
   padding-left: 42px;
   letter-spacing: 0.06em;
   margin-bottom: 20px;
+}
+
+.donation__acount::before {
+  display: block;
+  position: absolute;
+  content: url(../../assets/images/credit-card.svg);
+  width: 22px;
+  height: 32px;
+  left: 15px;
+  top: 10px;
 }
 
 .donation__text {
@@ -575,10 +677,6 @@ a {
   line-height: 45px;
   letter-spacing: 0.06em;
   color: #ffffff;
-  margin-bottom: 44px;
-}
-
-.footer__title-location {
   margin-bottom: 32px;
 }
 
@@ -592,7 +690,16 @@ a {
   letter-spacing: 0.06em;
   color: #F1CDB3;
   padding-left: 60px;
-  margin-bottom: 50px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  min-height: 46px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 26px;
 }
 
 .footer__contacts {
@@ -627,7 +734,6 @@ a {
 
 .footer__address {
   padding-left: 41px;
-  margin-bottom: 38px;
   position: relative;
 }
 
@@ -637,6 +743,31 @@ a {
   content: url(../../assets/images/icon-marker.svg);
   width: 22px;
   height: 32px;
-  top: 0;
+  left: 0;
+}
+
+.footer__email {
+  position: relative;
+}
+
+.footer__email::before {
+  display: block;
+  position: absolute;
+  content: url(../../assets/images/icon-email.svg);
+  width: 22px;
+  height: 32px;
+  left: 0;
+}
+
+.footer__phone {
+  position: relative;
+}
+
+.footer__phone::before {
+  display: block;
+  position: absolute;
+  content: url(../../assets/images/icon-phone.svg);
+  width: 22px;
+  height: 32px;
   left: 0;
 }

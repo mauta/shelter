@@ -25,12 +25,26 @@
 }
 
 .pets__slide-btn {
+  box-sizing: border-box;
   width: 52px;
   height: 52px;
   @include color-button;
   border: 2px solid #F1CDB3;
   position: relative;
   background-color: transparent;
+
+  &:disabled {
+    border: 2px solid $btn-light;    
+  }
+
+  
+  &:hover,
+  &:active,
+  &:focus {
+    border: none;
+  }
+
+
 }
 
 .pets__slide-btn--previous {
@@ -39,13 +53,25 @@
   align-self: center;
   justify-self: start;
 
-  &::after{
+  &::after {
     display: block;
     content: url(../../assets/images/Arrow.svg);
     width: 14px;
     height: 6px;
     position: absolute;
     top: 12px;
+  }
+
+
+
+  &:hover::after,
+  &:active::after,
+  &:focus::after {
+    top: 14px
+  }
+
+  &:disabled {
+    border: 2px solid $btn-light;
   }
 
 }
@@ -56,7 +82,7 @@
   justify-self: end;
   align-self: center;
 
-  &::after{
+  &::after {
     display: block;
     content: url(../../assets/images/Arrow.svg);
     width: 14px;
@@ -64,6 +90,16 @@
     position: absolute;
     top: 30px;
     transform: rotate(180deg);
+  }
+
+  &:hover::after,
+  &:active::after,
+  &:focus::after {
+    top: 32px
+  }
+
+  &:disabled {
+    border: 2px solid $btn-light;
   }
 }
 
@@ -90,7 +126,12 @@
   width: 270px;
   padding-top: 30px;
   padding-bottom: 30px;
-  background: #FAFAFA
+  background: #FAFAFA;
+
+  &:hover{
+    box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+    background-color: $white;
+  }
 }
 
 .slider__img {
@@ -111,5 +152,10 @@
   border: 2px solid #F1CDB3;
   box-sizing: border-box;
   border-radius: 100px;
-}
 
+  &:hover,
+  &:active,
+  &:focus {
+    border: none;
+  }
+}

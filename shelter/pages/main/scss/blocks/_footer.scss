@@ -19,12 +19,7 @@
   line-height: 45px;  
   letter-spacing: 0.06em;
   color: $white;
-  margin-bottom: 44px;
-
-  &-location{
-    margin-bottom: 32px;
-  }
-  
+  margin-bottom: 32px;
 }
 
 .footer__text {
@@ -37,7 +32,11 @@
   letter-spacing: 0.06em;
   color: $base-pink;
   padding-left: 60px;
-  margin-bottom: 50px;
+  box-sizing: border-box;
+  min-height: 46px;
+  display: flex;
+  align-items: center;  
+  margin-bottom: 26px;
 }
 
 .footer__contacts{
@@ -59,8 +58,7 @@
 }
 
 .footer__address{
-  padding-left: 41px;
-  margin-bottom: 38px;
+ padding-left: 41px;
   position: relative;
 
   &::before{
@@ -68,9 +66,36 @@
     position: absolute;
     content: url(../../assets/images/icon-marker.svg);
     width: 22px;
-    height: 32px;
-    top: 0;
+    height: 32px;   
     left: 0;
   }
 }
+
+.footer__email{
+   position: relative;
+ 
+   &::before{
+     display: block;
+     position: absolute;
+     content: url(../../assets/images/icon-email.svg);
+     width: 22px;
+     height: 32px;   
+     left: 0;
+   }
+ }
+
+ 
+ .footer__phone{
+   position: relative;
+ 
+   &::before{
+     display: block;
+     position: absolute;
+     content: url(../../assets/images/icon-phone.svg);
+     width: 22px;
+     height: 32px;   
+     left: 0;
+   }
+ }
+ 
 
