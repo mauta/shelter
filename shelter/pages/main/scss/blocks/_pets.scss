@@ -8,6 +8,8 @@
   grid-template-columns: auto 990px auto;
   grid-template-rows: auto 435px auto;
   padding-top: 80px;
+
+
 }
 
 .pets__title {
@@ -143,9 +145,9 @@
 .slider__item {
   box-sizing: border-box;
   width: 270px;
-  padding-top: 30px;
   padding-bottom: 30px;
   background: #FAFAFA;
+  border-radius: 9px;
 
   &:hover {
     box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
@@ -167,10 +169,10 @@
 .slider__btn {
   @include color-button;
   margin: 0 auto;
-  width: 187px;
+  width: 186px;
   border: 2px solid #F1CDB3;
   box-sizing: border-box;
-  border-radius: 100px;
+  border-radius: 25px;
 
   &:hover,
   &:active,

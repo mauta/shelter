@@ -45,12 +45,12 @@
   height: 250px;
   display: flex;
   flex-direction: column;
-  padding-top: 22px;
+  padding-top: 17px;
 }
 
 .footer__location{
   box-sizing: border-box;
-  padding-top: 22px;
+  padding-top: 17px;
   width: 302px;
   height: 229px;
   display: flex;
@@ -67,7 +67,7 @@
     content: url(../../assets/images/icon-marker.svg);
     width: 22px;
     height: 32px;   
-    left: 0;
+    left: -1px;
   }
 }
 

@@ -9,6 +9,11 @@
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
+
+  &-pets{
+    padding-top: 30px;
+    padding-bottom: 26px;
+  }
 }
 
 .nav {
@@ -18,6 +23,8 @@
   justify-content: flex-end;
   padding-top: 16px;
 }
+
+
 
 .nav__item {
   margin-left: 35px;
@@ -30,6 +37,10 @@
   line-height: 24px;
   color: $basic-light;
   padding-bottom: 4px;
+
+  &-pets{
+    color: $basic-dark;
+  }
 }
 
 
@@ -70,3 +81,5 @@
   background-color: $base-pink;
   width: 207px; 
 }
+
+

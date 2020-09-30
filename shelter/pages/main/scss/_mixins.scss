@@ -46,7 +46,16 @@
 }
 
 @mixin big_screen {
-  width: 1200px;
+  max-width: 1280px;
+  padding: 0 40px;
+  margin: 0 auto;
+
+}
+
+
+@mixin middle_screen {
+  max-width: 768px;
+  padding: 0 30px;
   margin: 0 auto;
 
 }
