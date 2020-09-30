@@ -53,7 +53,7 @@ a {
 }
 
 .header {
-  max-width: 1280px;
+  width: 1280px;
   padding: 0 40px;
   margin: 0 auto;
   padding-top: 60px;
@@ -117,7 +117,7 @@ a {
 }
 
 .start__wrap {
-  max-width: 1280px;
+  width: 1280px;
   padding: 0 40px;
   margin: 0 auto;
   padding-top: 56px;
@@ -197,7 +197,7 @@ a {
 }
 
 .about {
-  max-width: 1280px;
+  width: 1280px;
   padding: 0 40px;
   margin: 0 auto;
   display: -webkit-box;
@@ -240,7 +240,7 @@ a {
 }
 
 .pets__wrap {
-  max-width: 1280px;
+  width: 1280px;
   padding: 0 40px;
   margin: 0 auto;
   display: -ms-grid;
@@ -525,7 +525,7 @@ a {
 }
 
 .help {
-  max-width: 1280px;
+  width: 1280px;
   padding: 0 40px;
   margin: 0 auto;
   padding-top: 80px;
@@ -584,7 +584,7 @@ a {
 }
 
 .donation__wrap {
-  max-width: 1280px;
+  width: 1280px;
   padding: 0 40px;
   margin: 0 auto;
   display: -webkit-box;
@@ -682,7 +682,7 @@ a {
 }
 
 .footer__wrap {
-  max-width: 1280px;
+  width: 1280px;
   padding: 0 40px;
   margin: 0 auto;
   display: -webkit-box;
@@ -804,7 +804,7 @@ a {
 }
 
 .friends {
-  max-width: 1280px;
+  width: 1280px;
   padding: 0 40px;
   margin: 0 auto;
   padding-top: 82px;
@@ -813,7 +813,7 @@ a {
 
 @media (max-width: 1200px) {
   .friends {
-    max-width: 768px;
+    max-width: 960px;
     padding: 0 30px;
     margin: 0 auto;
   }
@@ -825,10 +825,8 @@ a {
   margin: 0;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 1fr 1fr 1fr;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
-  -ms-grid-rows: 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
+  -ms-grid-columns: (minmax(270px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
   grid-row-gap: 30px;
   grid-column-gap: 40px;
   margin-bottom: 60px;

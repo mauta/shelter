@@ -16,13 +16,10 @@
 .friends__list {
   @include list;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
   grid-row-gap: 30px;
   grid-column-gap: 40px;
   margin-bottom: 60px;
-
-
 }
 
 .friends_title {
