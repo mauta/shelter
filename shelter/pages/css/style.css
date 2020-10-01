@@ -322,6 +322,17 @@ a {
 
 .pets__slide-btn:disabled:hover, .pets__slide-btn:disabled:active, .pets__slide-btn:disabled:focus, .pets__slide-btn[disabled]:hover, .pets__slide-btn[disabled]:active, .pets__slide-btn[disabled]:focus {
   background-color: transparent;
+  cursor: auto;
+}
+
+.pets__slide-btn:disabled path {
+  fill: #CDCDCD;
+}
+
+.pets__slide-btn:disabled path:hover::after path,
+.pets__slide-btn:disabled path:active::after path,
+.pets__slide-btn:disabled path:focus::after path {
+  fill: #CDCDCD;
 }
 
 .pets__slide-btn--previous {
@@ -335,25 +346,8 @@ a {
       justify-self: start;
 }
 
-.pets__slide-btn--previous::after {
-  display: block;
-  content: url(../../assets/images/Arrow.svg);
-  width: 14px;
-  height: 6px;
-  position: absolute;
-  top: 12px;
-}
-
 .pets__slide-btn--previous:hover::after, .pets__slide-btn--previous:active::after, .pets__slide-btn--previous:focus::after {
   top: 14px;
-}
-
-.pets__slide-btn--previous:disabled {
-  border: 2px solid #CDCDCD;
-}
-
-.pets__slide-btn--previous:disabled:hover::after, .pets__slide-btn--previous:disabled:active::after, .pets__slide-btn--previous:disabled:focus::after {
-  top: 12px;
 }
 
 .pets__slide-btn--next {
@@ -367,27 +361,8 @@ a {
       align-self: center;
 }
 
-.pets__slide-btn--next::after {
-  display: block;
-  content: url(../../assets/images/Arrow.svg);
-  width: 14px;
-  height: 6px;
-  position: absolute;
-  top: 30px;
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
-}
-
 .pets__slide-btn--next:hover::after, .pets__slide-btn--next:active::after, .pets__slide-btn--next:focus::after {
   top: 32px;
-}
-
-.pets__slide-btn--next:disabled {
-  border: 2px solid #CDCDCD;
-}
-
-.pets__slide-btn--next:disabled:hover::after, .pets__slide-btn--next:disabled:active::after, .pets__slide-btn--next:disabled:focus::after {
-  top: 30px;
 }
 
 .pets__button {
@@ -454,6 +429,7 @@ a {
   padding-bottom: 30px;
   background: #FAFAFA;
   border-radius: 9px;
+  overflow: hidden;
 }
 
 .slider__item:hover {
@@ -466,6 +442,8 @@ a {
   display: block;
   margin: 0 auto;
   margin-bottom: 30px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .slider__name {
