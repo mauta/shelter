@@ -45,11 +45,10 @@
   line-height: 24px;
 }
 
-@mixin big_screen {
-  width: 1280px;
-  padding: 0 40px;
-  margin: 0 auto;
 
+@mixin big_screen {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 

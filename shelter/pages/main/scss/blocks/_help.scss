@@ -1,5 +1,4 @@
 .help {
-  @include big_screen;
   padding-top: 80px;
   padding-bottom: 45px;
 }
@@ -11,17 +10,28 @@
 }
 
 .help__list {
+  padding: 0;
   @include list;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   margin: 0 auto;
+  @media (max-width: 1024px){
 
+  }
 }
 
 .help__item{
-  padding: 0 60px;
+  margin-right: 60px;
+  margin-left: 60px;
   margin-bottom: 55px;
+
+
+  @media (max-width: 1024px){
+    width: 170px;
+    margin-right: 30px;
+    margin-left: 30px;
+  }
 }
 
 

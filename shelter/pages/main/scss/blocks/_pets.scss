@@ -5,25 +5,33 @@
 .pets__wrap {
   @include big_screen;
   display: grid;
-  grid-template-columns: auto 990px auto;
-  grid-template-rows: auto 435px auto;
-  padding-top: 80px;
-
+  grid-template-columns: auto 82.5% auto;
+  grid-template-rows: auto 54.8% auto;
+  padding-top: 6.7%;
+  @media (max-width: 1100px) {
+    padding-top: 11.7%;
+    grid-template-columns: auto 81.8% auto;
+  }
 
 }
 
 .pets__title {
   @include title;
-  margin-bottom: 60px;
+  margin: 0;
+  margin-bottom: 6%;
   text-align: center;
   grid-column-start: 2;
   grid-column-end: 3;
-
+  @media (max-width: 1024px) {
+    margin-bottom: 10.1%;
+  }
 }
 
 .pets__slider {
   grid-column-start: 2;
   grid-column-end: 3;
+
+  @media (max-width: 1024px) {}
 }
 
 .pets__slide-btn {
@@ -53,15 +61,15 @@
     }
   }
 
-  &:disabled path{
-    fill:$btn-light;
- 
-     &:hover::after path,
-     &:active::after path,
-     &:focus::after path{
-       fill:$btn-light;
-     }
-   }
+  &:disabled path {
+    fill: $btn-light;
+
+    &:hover::after path,
+    &:active::after path,
+    &:focus::after path {
+      fill: $btn-light;
+    }
+  }
 
 }
 
@@ -77,6 +85,7 @@
     top: 14px
   }
 
+
 }
 
 .pets__slide-btn--next {
@@ -91,11 +100,10 @@
     top: 32px
   }
 
-  
 
 
 
-  
+
 }
 
 
@@ -118,15 +126,35 @@
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
+
+  @media (max-width: 1100px) {
+    overflow: hidden;
+    justify-content: space-around;
+
+  }
+
+  @media (max-width: 900px) {
+   
+    justify-content: space-between;
+
+  }
 }
 
 .slider__item {
   box-sizing: border-box;
-  width: 270px;
+  min-width: 270px;
   padding-bottom: 30px;
   background: #FAFAFA;
   border-radius: 9px;
   overflow: hidden;
+  // margin-right: 6.8%;
+
+  @media (max-width: 1100px) {
+       
+    &:last-child{
+      display: none;
+    } 
+  }
 
   &:hover {
     box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
