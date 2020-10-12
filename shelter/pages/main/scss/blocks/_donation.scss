@@ -5,19 +5,37 @@
 .donation__wrap {
   @include big_screen;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  padding-top: 82px;
-  padding-left: 182px;
-  padding-bottom: 101px;
+  padding-top: 4.25%;
+  padding-left: 7.52%;
+  padding-bottom: 5.25%;
+
+  @media (max-width: 1024px) {
+    justify-content: center;
+    padding-left: 4.78%;
+    padding-top: 10.6%;
+  }
 }
 
 .donation__content {
-  width: 430px;
+  width: 40%;
+
+  @media (max-width: 1024px) {
+    order: 1;
+    width: 57%;
+    margin-bottom: 8.2%;
+  }
 }
 
 .donation__title {
   @include title;
-  margin-bottom: 20px;
+  margin-bottom: 4.8%;
+  width: 100%;
+
+  // @media (max-width: 1024px) {
+  //   margin-bottom: 4.8%;
+  // }
 }
 
 .donation__bank {
@@ -26,7 +44,11 @@
   font-size: 15px;
   line-height: 110%;
   letter-spacing: 0.06em;
-  margin-bottom: 20px;
+  margin-bottom: 4.7%;
+
+  @media (max-width: 1024px) {
+    margin-bottom: 4.3%;
+  }
 }
 
 .donation__acount{
@@ -51,6 +73,10 @@
   letter-spacing: 0.06em;
   margin-bottom: 20px;
 
+  @media (max-width: 1024px) {
+    height: 44px;
+  }
+
   &::before{
     display: block;
     position: absolute;
@@ -59,6 +85,10 @@
     height: 32px;   
     left: 15px;
     top: 10px;
+
+    @media (max-width: 1024px) {
+      top: 12px;
+    }
   }
 }
 
@@ -74,4 +104,10 @@
 
 .donation__img {
   margin-right: 30px;
+
+  @media (max-width: 1024px) {
+    order: 2;
+    margin-right: 5.2%;
+    margin-bottom: 8.15%;
+  }
 }
