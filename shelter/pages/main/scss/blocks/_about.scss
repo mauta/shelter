@@ -10,6 +10,7 @@
     justify-content: center;
     padding-left: 0;
     padding-top: 8.7%;
+    padding-bottom: 11.5%;
   }
 
 }
@@ -23,13 +24,25 @@
     width: 57%;
     margin-bottom: 7%;
   }
+
+  @media (max-width: 740px) {
+    width: 85%;
+    margin-bottom:19px;
+  }
 }
 
 .about__title {
   @include title;
   margin-bottom: 5.8%;
+
   @media (max-width: 1024px) {
-      margin-bottom: 5.7%;
+    margin-bottom: 5.7%;
+  }
+
+  @media (max-width: 740px) {
+    @include title_mobile;
+    margin-bottom: 8.9%;
+    text-align: center;
   }
 
 }
@@ -37,6 +50,12 @@
 .about__text {
   @include font-second;
   margin-bottom: 25px;
+
+  @media (max-width:740px) {
+    text-align: justify;
+    margin-bottom: 22px;
+    line-height: 160%;
+  }
 }
 
 .about__img {
@@ -45,8 +64,16 @@
 
   @media (max-width: 1024px) {
     order: 2;
-    margin:0 auto;
+    margin: 0 auto;
     margin-left: 30.5%;
     margin-bottom: 1.4%;
   }
+
+  @media (max-width:740px){
+    width: 260px;
+    height: 354px;
+    margin: 0 auto;
+    margin-bottom: 1.4%;
+  }
+
 }

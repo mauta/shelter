@@ -16,19 +16,17 @@
 
 }
 
-@mixin link{
-  &:hover{
+@mixin link {
+  &:hover {
     cursor: pointer;
   }
 
   &:active,
-  &:focus{
+  &:focus {
     border-bottom: 3px solid $base-pink;
     outline: none;
   }
-
 }
-
 
 @mixin font-main {
   font-family: $main-font;
@@ -44,7 +42,6 @@
   font-size: 15px;
   line-height: 24px;
 }
-
 
 @mixin big_screen {
   max-width: 1200px;
@@ -63,7 +60,6 @@
 
 }
 
-
 @mixin title {
   font-family: $main-font;
   font-size: 35px;
@@ -72,7 +68,13 @@
   letter-spacing: 0.06em;
 }
 
-
+@mixin title_mobile {
+  font-family: $main-font;
+  font-weight: normal;
+  font-size: 25px;
+  line-height: 130%;
+  letter-spacing: 0.06em;
+}
 
 @mixin subtitle {
   font-family: $main-font;
@@ -90,7 +92,7 @@
   box-sizing: border-box;
   display: flex;
   justify-content: center;
-  align-items: center;  
+  align-items: center;
   border-radius: 26px;
   border: none;
   font-family: $main-font;
@@ -104,13 +106,13 @@
   outline: none;
   cursor: pointer;
 
-  &:hover{
+  &:hover {
     background-color: $light-pink;
   }
 
   &:active,
-  &:focus{
+  &:focus {
     background-color: $light-pink;
     opacity: 0.7;
-    }
+  }
 }

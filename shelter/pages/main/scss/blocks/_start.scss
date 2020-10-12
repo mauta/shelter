@@ -10,9 +10,14 @@
   flex-wrap: nowrap;
   justify-content: space-between;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     padding-top: 3.9%;
 
+  }
+
+  
+  @media (max-width: 740px) {
+    padding-top: 10%;
   }
 
   &-pets {
@@ -21,12 +26,18 @@
   }
 }
 
+
+
 .nav {
   @include list;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
   padding-top: 16px;
+
+  @media (max-width: 740px) {
+    display: none;
+  }
 }
 
 
@@ -60,7 +71,9 @@
 
   @media (max-width: 1024px) {}
 
-  @media (max-width: 768px) {}
+  @media (max-width: 740px) {
+    padding-top: 14.6%;
+  }
 }
 
 .start__content {
@@ -75,7 +88,11 @@
     margin-bottom: 14.1%;
   }
 
-  @media (max-width: 768px) {}
+  @media (max-width: 740px) {
+    width: 97%;
+    text-align: center;
+    margin-bottom: 35.3%;
+  }
 }
 
 .start__title {
@@ -87,6 +104,12 @@
   line-height: 57px;
   color: $white;
 
+  @media (max-width: 740px){
+    @include title_mobile;
+    width: 200px;
+    margin: 0 auto;
+    margin-bottom: 14.4%;
+  }
 }
 
 .start__text {
@@ -95,6 +118,10 @@
   margin: 0;
   margin-bottom: 40px;
   color: $basic-light;
+
+  @media (max-width: 740px){
+    margin-bottom: 42px;
+  }
 }
 
 .start__button {
@@ -117,8 +144,8 @@
 
   }
 
-  @media (max-width: 768px) {
-   
-
+  @media (max-width: 740px) {
+    margin-left: 13%;
+    width: 86%;
   }
 }

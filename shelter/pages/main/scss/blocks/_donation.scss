@@ -16,6 +16,12 @@
     padding-left: 4.78%;
     padding-top: 10.6%;
   }
+
+  @media (max-width: 740px) {
+    justify-content: center;
+    padding-left: 0%;
+    padding-top: 13.3%;
+  }
 }
 
 .donation__content {
@@ -26,6 +32,10 @@
     width: 57%;
     margin-bottom: 8.2%;
   }
+
+  @media (max-width: 740px) {
+    width: 90%;
+  }
 }
 
 .donation__title {
@@ -33,9 +43,11 @@
   margin-bottom: 4.8%;
   width: 100%;
 
-  // @media (max-width: 1024px) {
-  //   margin-bottom: 4.8%;
-  // }
+  @media (max-width: 740px) {
+    @include title-mobile;
+    text-align: center;
+    margin-bottom: 7.2%;
+  }
 }
 
 .donation__bank {
@@ -49,9 +61,18 @@
   @media (max-width: 1024px) {
     margin-bottom: 4.3%;
   }
+
+  @media (max-width: 740px) {
+    @include font-second;
+    text-align: center;
+    font-size: 14px;
+    line-height: 160%;
+    letter-spacing: 0.5px;
+    margin-bottom: 7.5%;
+  }
 }
 
-.donation__acount{
+.donation__acount {
   position: relative;
   background-color: $base-pink;
   color: $basic-dark;
@@ -60,7 +81,7 @@
   box-sizing: border-box;
   display: flex;
   justify-content: center;
-  align-items: center;  
+  align-items: center;
   border-radius: 9px;
   border: none;
   font-family: $main-font;
@@ -77,17 +98,32 @@
     height: 44px;
   }
 
-  &::before{
+  @media (max-width: 740px) {
+    height: 43px;
+    width: 281px;
+    margin: 0 auto;
+    font-size: 15px;
+    line-height: 110%;
+    letter-spacing: 0.06em;
+    margin-bottom: 20px;
+  }
+
+  &::before {
     display: block;
     position: absolute;
     content: url(../../assets/images/credit-card.svg);
     width: 22px;
-    height: 32px;   
+    height: 32px;
     left: 15px;
     top: 10px;
 
     @media (max-width: 1024px) {
       top: 12px;
+    }
+
+    @media (max-width: 740px){
+      top:10px;
+      left:14px;
     }
   }
 }
@@ -100,6 +136,13 @@
   line-height: 18px;
   font-style: italic;
   color: $gray;
+
+  @media (max-width: 740px){
+    width: 280px;
+    margin: 0 auto;
+    text-align: justify;
+    margin-bottom: 15px;
+  }
 }
 
 .donation__img {
@@ -109,5 +152,12 @@
     order: 2;
     margin-right: 5.2%;
     margin-bottom: 8.15%;
+  }
+
+  @media (max-width: 740px) {
+    width: 260px;
+    height: 135.2px;
+    margin: 0 auto;
+    margin-bottom: 25px;
   }
 }
