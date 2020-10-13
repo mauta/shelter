@@ -11,13 +11,19 @@
   justify-content: space-between;
 
   @media (max-width: 1024px) {
-    padding-top: 3.9%;
+    padding-top: 4.2%;
 
   }
 
   
   @media (max-width: 740px) {
     padding-top: 10%;
+  }
+
+  &__wrap{
+    position: sticky;
+    top: 0;
+    background-color: $white;
   }
 
   &-pets {
@@ -69,7 +75,9 @@
   flex-wrap: wrap;
   margin: 0 auto;
 
-  @media (max-width: 1024px) {}
+  @media (max-width: 1024px) {
+    padding-top: 4.3%;
+  }
 
   @media (max-width: 740px) {
     padding-top: 14.6%;
@@ -91,7 +99,7 @@
   @media (max-width: 740px) {
     width: 97%;
     text-align: center;
-    margin-bottom: 35.3%;
+    margin-bottom: 35.5%;
   }
 }
 
@@ -114,9 +122,8 @@
 
 .start__text {
   @include font-second;
-
   margin: 0;
-  margin-bottom: 40px;
+  margin-bottom: 41px;
   color: $basic-light;
 
   @media (max-width: 740px){
@@ -128,6 +135,7 @@
   @include color-button;
   background-color: $base-pink;
   width: 207px;
+  padding-left: 6px;
 
   @media (max-width: 1024px) {
     margin: 0 auto;

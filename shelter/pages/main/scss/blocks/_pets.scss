@@ -10,7 +10,7 @@
   padding-top: 6.7%;
 
   @media (max-width: 1100px) {
-    padding-top: 11.7%;
+    padding-top: 11.5%;
     grid-template-columns: auto 81.8% auto;
   }
 
@@ -19,7 +19,7 @@
     flex-direction: column;
     align-items: center;
     position: relative;
-    padding-top: 14.5%;
+    padding-top: 14.2%;
     padding-bottom: 0%;
   }
 
@@ -28,18 +28,23 @@
 .pets__title {
   @include title;
   margin: 0;
-  margin-bottom: 6%;
+  margin-bottom: 5.9%;
   text-align: center;
   grid-column-start: 2;
   grid-column-end: 3;
+  padding-left: 2px;
+  padding-top: 1px;
 
   @media (max-width: 1024px) {
     margin-bottom: 10.1%;
+    padding-left: -1px;
+    padding-top: 0;
+
   }
 
   @media (max-width: 740px) {
     @include title-mobile;
-    width: 95%;
+    width: 96%;
     margin-bottom: 13.8%;
   }
 }
@@ -53,10 +58,23 @@
   }
 }
 
+.pets__arrow {
+  margin-top: -2px;
+
+  @media (max-width: 740px) {
+    margin-top: -1px;
+  }
+
+  &--friends{
+    margin-top: 0;
+  }
+}
+
 .pets__slide-btn {
   box-sizing: border-box;
   width: 52px;
   height: 52px;
+  padding-right: 2px;
   @include color-button;
   border: 2px solid #F1CDB3;
   position: relative;
@@ -90,7 +108,7 @@
     }
   }
 
-  @media (max-width: 740px){
+  @media (max-width: 740px) {
     position: absolute;
     bottom: 136px;
   }
@@ -106,10 +124,11 @@
   &:hover::after,
   &:active::after,
   &:focus::after {
-    top: 14px
+    top: 12px
   }
-  @media (max-width: 740px){
-    left:calc(28% - 26px); 
+
+  @media (max-width: 740px) {
+    left: calc(28% - 26px);
   }
 
 }
@@ -126,8 +145,8 @@
     top: 32px
   }
 
-  @media (max-width: 740px){
-    right:calc(28% - 26px); 
+  @media (max-width: 740px) {
+    right: calc(28% - 26px);
   }
 
 
@@ -143,9 +162,10 @@
   margin: 0 auto;
   width: 261px;
   background-color: $base-pink;
-  margin-top: 60px;
-  margin-bottom: 100px;
-  @media (max-width: 740px){
+  margin-top: 59px;
+  margin-bottom: 101px;
+
+  @media (max-width: 740px) {
     margin-bottom: 42px;
   }
 }
@@ -161,13 +181,10 @@
   @media (max-width: 1100px) {
     overflow: hidden;
     justify-content: space-around;
-
   }
 
   @media (max-width: 900px) {
-
     justify-content: space-between;
-
   }
 }
 
@@ -180,9 +197,22 @@
   overflow: hidden;
   // margin-right: 6.8%;
 
+  @media (max-width: 1200px){
+    &--friends:nth-last-child(2){
+      display: none;
+    }
+    &--friends:last-child{
+      display: none;
+    }
+  }
+
   @media (max-width: 1100px) {
 
     &:last-child {
+      display: none;
+    }
+
+    &--friends:nth-last-child(2){
       display: none;
     }
   }
@@ -191,6 +221,14 @@
 
     &:not(:first-child) {
       display: none;
+    }
+
+    &--friends:nth-child(2){
+      display: block;
+    }
+
+    &--friends:nth-child(3){
+      display: block;
     }
   }
 

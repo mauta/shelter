@@ -4,12 +4,16 @@
 
 .friends {
   @include big_screen;
-  padding-top: 82px;
+  padding-top: 81px;
   padding-bottom: 100px;
 
-  @media (max-width: 1200px) {
-    @include middle_screen;
+  @media (max-width: 1024px){
+    padding-bottom: 9.9%;
+  }
 
+  @media (max-width: 740px){
+    padding-top: 13%;
+    padding-bottom: 13%;
   }
 }
 
@@ -20,13 +24,35 @@
   grid-row-gap: 30px;
   grid-column-gap: 40px;
   margin-bottom: 60px;
+
+  @media (max-width: 1024px){
+    width: 75.7%;
+    margin: 0 auto;
+    margin-bottom: 5.2%;
+  }
+
+  @media (max-width: 740px){
+    width: 85%;
+    margin-bottom: 13.3%;
+  }
 }
 
 .friends_title {
   @include title;
   margin: 0;
-  margin-bottom: 58px;
+  margin-bottom: 59px;
+  padding-left: 3px;
   text-align: center;
+
+  @media (max-width: 1024px) {
+    padding-left: 2px;
+    margin-bottom: 3.8%;
+  }
+
+  @media (max-width: 740px) {
+    @include title-mobile;
+    margin-bottom: 13.2%;
+  }
 }
 
 .friends__btn-wrap {
@@ -34,6 +60,10 @@
   margin: 0 auto;
   width: 340px;
   justify-content: space-between;
+
+  @media (max-width: 740px) {
+    width: 94%;
+  }
 }
 
 .pets__page {
@@ -47,3 +77,83 @@
   align-items: center;
   justify-content: center;
 }
+
+
+
+.friends__slide-btn {
+  box-sizing: border-box;
+  width: 52px;
+  height: 52px;
+  padding-right: 2px;
+  @include color-button;
+  border: 2px solid #F1CDB3;
+  position: relative;
+  background-color: transparent;
+
+  &:hover,
+  &:active,
+  &:focus {
+    border: none;
+  }
+
+  &:disabled,
+  &[disabled] {
+    border: 2px solid $btn-light;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: transparent;
+      cursor: auto;
+    }
+  }
+
+  &:disabled path {
+    fill: $btn-light;
+
+    &:hover::after path,
+    &:active::after path,
+    &:focus::after path {
+      fill: $btn-light;
+    }
+  }
+
+
+}
+
+.friends__slide-btn--previous {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  align-self: center;
+  justify-self: start;
+
+  &:hover::after,
+  &:active::after,
+  &:focus::after {
+    top: 12px
+  }
+
+
+
+}
+
+.friends__slide-btn--next {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  justify-self: end;
+  align-self: center;
+
+  &:hover::after,
+  &:active::after,
+  &:focus::after {
+    top: 32px
+  }
+
+
+
+
+}
+
+
+
+

@@ -1,6 +1,11 @@
 .help {
-  padding-top: 80px;
+  padding-top: 82px;
+  padding-left: 3px;
   padding-bottom: 45px;
+
+  @media (max-width: 1024px){
+    margin-left: -2px;
+  }
 
   @media (max-width: 740px) {
     padding-top: 13.2%;
@@ -10,12 +15,12 @@
 
 .help__title {
   @include title;
-  margin-bottom: 60px;
+  margin-bottom: 58px;
   text-align: center;
 
   @media (max-width: 740px) {
     @include title-mobile;
-    margin-bottom: 36px;
+    margin-bottom: 37px;
   }
 }
 
@@ -29,8 +34,7 @@
 
   @media (max-width: 740px) {
     justify-content: space-between;
-    width: 290px;
-
+    width: 291px;
   }
 }
 
