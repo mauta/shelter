@@ -50,6 +50,7 @@
 .about__text {
   @include font-second;
   margin-bottom: 25px;
+  color: $btn-light;
 
   @media (max-width:740px) {
     text-align: justify;
