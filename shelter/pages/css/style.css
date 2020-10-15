@@ -72,6 +72,7 @@ a {
 .header {
   max-width: 1200px;
   margin: 0 auto;
+  position: relative;
   padding-top: 5%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -105,6 +106,97 @@ a {
 .header-pets {
   padding-top: 30px;
   padding-bottom: 26px;
+}
+
+.header__logo--hide {
+  opacity: 0;
+  -webkit-transition-delay: 2s;
+          transition-delay: 2s;
+  -webkit-transition-duration: 2s;
+          transition-duration: 2s;
+}
+
+.header__burger--hidden {
+  display: none;
+}
+
+@media (max-width: 740px) {
+  .header__burger--hidden {
+    display: block;
+  }
+}
+
+.header__burger {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 45px;
+  right: 44px;
+  padding: 0;
+  border: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
+  z-index: 1;
+}
+
+.header__burger-line {
+  position: relative;
+  display: block;
+  width: 30px;
+  height: 2px;
+  background-color: #F1CDB3;
+}
+
+.header__burger::after {
+  position: absolute;
+  display: block;
+  content: '';
+  background-color: #F1CDB3;
+  width: 30px;
+  height: 2px;
+  bottom: 4px;
+}
+
+.header__burger::before {
+  position: absolute;
+  display: block;
+  content: '';
+  background-color: #F1CDB3;
+  width: 30px;
+  height: 2px;
+  top: 4px;
+}
+
+.header__burger--open {
+  transform: rotate(90deg) translateY(1px);
+  -webkit-transition: -webkit-transform 2s;
+  transition: -webkit-transform 2s;
+  transition: transform 2s;
+  transition: transform 2s, -webkit-transform 2s;
+  -webkit-transition: transform 2s;
+  -moz-transition: transform 2s;
+  -ms-transition: transform 2s;
+  -o-transition: transform 2s;
+  -webkit-transform: rotate(90deg) translateY(1px);
+  -moz-transform: rotate(90deg) translateY(1px);
+  -ms-transform: rotate(90deg) translateY(1px);
+  -o-transform: rotate(90deg) translateY(1px);
+}
+
+.header__burger--close {
+  -webkit-transform: translateY(-1px);
+          transform: translateY(-1px);
+  -webkit-transition: -webkit-transform 2s;
+  transition: -webkit-transform 2s;
+  transition: transform 2s;
+  transition: transform 2s, -webkit-transform 2s;
+  -webkit-transition: transform 2s;
+  -moz-transition: transform 2s;
+  -ms-transition: transform 2s;
+  -o-transition: transform 2s;
 }
 
 .nav {
@@ -1620,4 +1712,109 @@ a {
 
 .friends__slide-btn--next:hover::after, .friends__slide-btn--next:active::after, .friends__slide-btn--next:focus::after {
   top: 32px;
+}
+
+.burger {
+  position: absolute;
+  top: 0;
+  right: -320px;
+  width: 320px;
+  background: #292929;
+  padding-top: 250px;
+  padding-bottom: 205px;
+}
+
+.burger__nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  text-align: center;
+}
+
+.burger__item {
+  margin: 0;
+  margin-bottom: 41px;
+}
+
+.burger__link {
+  font-family: "Arial", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 24px;
+  color: #F6F6F6;
+  font-size: 32px;
+  line-height: 51px;
+  margin: 0;
+  color: #CDCDCD;
+}
+
+.burger__link:hover {
+  cursor: pointer;
+}
+
+.burger__link:active, .burger__link:focus {
+  border-bottom: 3px solid #F1CDB3;
+  outline: none;
+}
+
+.burger__logo {
+  position: absolute;
+  top: 30px;
+  left: 10px;
+  opacity: 0;
+  -webkit-transition-duration: 1s;
+          transition-duration: 1s;
+}
+
+.burger__logo--open {
+  opacity: 1;
+  -webkit-transition-delay: 2s;
+          transition-delay: 2s;
+  -webkit-transition-duration: 2s;
+          transition-duration: 2s;
+}
+
+.burger__animation {
+  transform: translateX(-320px);
+  -webkit-transform: translateX(-320px);
+  -moz-transform: translateX(-320px);
+  -ms-transform: translateX(-320px);
+  -o-transform: translateX(-320px);
+  -webkit-transition: -webkit-transform 2s;
+  transition: -webkit-transform 2s;
+  transition: transform 2s;
+  transition: transform 2s, -webkit-transform 2s;
+  -webkit-transition: transform 2s;
+  -moz-transition: transform 2s;
+  -ms-transition: transform 2s;
+  -o-transition: transform 2s;
+}
+
+.burger__animation--close {
+  transform: translateX(320px);
+  -webkit-transform: translateX(320px);
+  -moz-transform: translateX(320px);
+  -ms-transform: translateX(320px);
+  -o-transform: translateX(320px);
+  -webkit-transition: -webkit-transform 4s;
+  transition: -webkit-transform 4s;
+  transition: transform 4s;
+  transition: transform 4s, -webkit-transform 4s;
+  -webkit-transition: transform 4s;
+  -moz-transition: transform 4s;
+  -ms-transition: transform 4s;
+  -o-transition: transform 4s;
 }
