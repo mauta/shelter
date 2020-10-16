@@ -14,6 +14,7 @@ body {
   font-weight: normal;
   font-style: normal;
   margin: 0 auto;
+  overflow-x: hidden;
 }
 
 
@@ -49,12 +50,28 @@ a {
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 40px;
+  overflow: hidden;
 
   @media (max-width: 1024px) {
     padding: 0 3.9%;
+    overflow: hidden;
   }
 
   @media (max-width: 740px) {
     padding: 0 2.9%;
+    overflow: hidden;
   }
+}
+
+.dark-screen {
+  position:fixed;
+  display:none;
+  overflow: auto;
+  left: 0; 
+  right: 0; 
+  top: 0; 
+  bottom: 0;
+  background:$dark-screen;
+  z-index:1;
+  min-height: 100%;
 }

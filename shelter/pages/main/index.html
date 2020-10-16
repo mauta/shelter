@@ -9,44 +9,65 @@
 </head>
 
 <body class="body">
-
+  <a name="about"></a>
 
   <h1 class="visually-hidden"> Cozy House, Shelter for pets in Boston</h1>
 
   <section class="start">
-    <div class="screen__wrap">
+    <div class="screen__wrap start__hidden">
       <header class="header">
+        
         <a class="header__logo logo" href="#">
           <img class="logo__img" src="../../assets/images/logo.svg" alt="Cozy House, Shelter for pets in Boston"
             width="184" height="60">
         </a>
         <ul class="nav">
           <li class="nav__item"><a href="#about" class="nav__link">About the shelter</a></li>
-          <li class="nav__item"><a href="#ourpets" class="nav__link">Our pets </a></li>
-          <li class="nav__item"><a href="#help" class="nav__link">Help the shelter</a></li>
-          <li class="nav__item"><a href="#contacts" class="nav__link">Contacts </a></li>
+          <li class="nav__item"><a href="pets.html" class="nav__link">Our pets </a></li>
+          <li class="nav__item"><a href="#" class="nav__link nav__link--disabled" >Help the shelter</a></li>
+          <li class="nav__item"><a href="#" class="nav__link nav__link--disabled" >Contacts </a></li>
         </ul>
 
-        <button class="header__burger header__burger--hidden header__burger--close" aria-label="меню открыть-закрыть"> 
+        <button class="header__burger header__burger--hidden header__burger--close" aria-label="меню открыть-закрыть">
           <span class="header__burger-line"></span>
         </button>
+
+
+
       </header>
       <div class="start__wrap">
         <div class="start__content">
           <h2 class="start__title">Not only people need a house</h2>
           <p class="start__text">We offer to give a chance to a little and nice puppy with an extremely wide and open
             heart. He or she will love you more than anybody else in the world, you will see!</p>
-          <button class="start__button">Make a friend</button>
+           <a  class="start__button" href="pets.html">Make a friend</a>
+      
         </div>
         <img class="start__img" src="../../assets/images/start-screen-puppy.png" alt="милый щеночек">
       </div>
-    </div>
 
+
+      <div class="burger">
+
+        <a class="burger__logo logo" href="#">
+          <img class="logo__img" src="../../assets/images/logo.svg" alt="Cozy House, Shelter for pets in Boston"
+            width="184" height="60">
+        </a>
+        <ul class="burger__nav">
+          <li class="burger__item"><a href="#about" class="burger__link">About the shelter</a></li>
+          <li class="burger__item"><a href="pets.html" class="burger__link">Our pets </a></li>
+          <li class="burger__item"><a href="#" class="burger__link burger__link--disable">Help the shelter</a></li>
+          <li class="burger__item"><a href="#" class="burger__link burger__link--disable">Contacts </a></li>
+        </ul>
+
+      </div>
+
+    </div>
   </section>
   <main>
     <section class="about">
 
-      <a name="about"></a>
+     
       <img class="about__img" src="../../assets/images/about-pets.png" alt="" width="300" height="408">
       <div class="about__content">
         <h3 class="about__title">About the shelter<br> “Cozy House” </h3>
@@ -163,6 +184,7 @@
       </div>
 
     </section>
+
   </main>
   <footer class="footer">
     <a name="contacts"></a>
@@ -188,20 +210,9 @@
 
   </footer>
 
-  <section class="burger burger__animation--close">
 
-    <a class="burger__logo logo" href="#">
-      <img class="logo__img" src="../../assets/images/logo.svg" alt="Cozy House, Shelter for pets in Boston"
-        width="184" height="60">
-    </a>
-    <ul class="burger__nav">
-      <li class="burger__item"><a href="#about" class="burger__link">About the shelter</a></li>
-      <li class="burger__item"><a href="#ourpets" class="burger__link">Our pets </a></li>
-      <li class="burger__item"><a href="#help" class="burger__link">Help the shelter</a></li>
-      <li class="burger__item"><a href="#contacts" class="burger__link">Contacts </a></li>
-    </ul>
-  </section>
-<script src="js/script.js"></script>
+  <div class="dark-screen"></div>
+  <script src="js/script.js"></script>
 </body>
 
 

@@ -1,6 +1,11 @@
 .start {
   background:
     url(../../assets/images/noise_transparent.png), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
+    
+}
+
+.start__hidden{
+  overflow: hidden;
 }
 
 .header {
@@ -10,6 +15,7 @@
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
+  overflow: hidden;
 
   @media (max-width: 1024px) {
     padding-top: 4.2%;
@@ -42,7 +48,7 @@
 .header__burger--hidden{
   display: none;
 
-  @media (max-width: 740px) {
+  @media (max-width: 767px) {
     display: block;
   }
 }
@@ -59,9 +65,7 @@
   outline: none;
   cursor: pointer;
   background-color: transparent;
-  z-index: 1;
-
-
+  z-index: 3;
 }
 
 .header__burger-line{
@@ -100,10 +104,6 @@
   -moz-transition: transform 2s;
   -ms-transition: transform 2s;
   -o-transition: transform 2s;
-  -webkit-transform:;
-  -moz-transform:;
-  -ms-transform:;
-  -o-transform:;
 }
 
 .header__burger--close{
@@ -113,7 +113,6 @@
   -moz-transition: transform 2s;
   -ms-transition: transform 2s;
   -o-transition: transform 2s;
-
 }
 
 
@@ -126,7 +125,7 @@
   justify-content: flex-end;
   padding-top: 16px;
 
-  @media (max-width: 740px) {
+  @media (max-width: 767px) {
     display: none;
   }
 }
@@ -148,6 +147,11 @@
   &-pets {
     color: $basic-dark;
   }
+
+  &--disabled{
+    pointer-events: none;
+    cursor: default; 
+  }
 }
 
 
@@ -159,6 +163,7 @@
   justify-content: center;
   flex-wrap: wrap;
   margin: 0 auto;
+  overflow: hidden;
 
   @media (max-width: 1024px) {
     padding-top: 4.3%;

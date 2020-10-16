@@ -19,6 +19,7 @@ body {
   font-weight: normal;
   font-style: normal;
   margin: 0 auto;
+  overflow-x: hidden;
 }
 
 p,
@@ -51,22 +52,42 @@ a {
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 40px;
+  overflow: hidden;
 }
 
 @media (max-width: 1024px) {
   .screen__wrap {
     padding: 0 3.9%;
+    overflow: hidden;
   }
 }
 
 @media (max-width: 740px) {
   .screen__wrap {
     padding: 0 2.9%;
+    overflow: hidden;
   }
+}
+
+.dark-screen {
+  position: fixed;
+  display: none;
+  overflow: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(41, 41, 41, 0.6);
+  z-index: 1;
+  min-height: 100%;
 }
 
 .start {
   background: url(../../assets/images/noise_transparent.png), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
+}
+
+.start__hidden {
+  overflow: hidden;
 }
 
 .header {
@@ -82,6 +103,7 @@ a {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  overflow: hidden;
 }
 
 @media (max-width: 1024px) {
@@ -120,7 +142,7 @@ a {
   display: none;
 }
 
-@media (max-width: 740px) {
+@media (max-width: 767px) {
   .header__burger--hidden {
     display: block;
   }
@@ -139,7 +161,7 @@ a {
   outline: none;
   cursor: pointer;
   background-color: transparent;
-  z-index: 1;
+  z-index: 3;
 }
 
 .header__burger-line {
@@ -171,7 +193,8 @@ a {
 }
 
 .header__burger--open {
-  transform: rotate(90deg) translateY(1px);
+  -webkit-transform: rotate(90deg) translateY(1px);
+          transform: rotate(90deg) translateY(1px);
   -webkit-transition: -webkit-transform 2s;
   transition: -webkit-transform 2s;
   transition: transform 2s;
@@ -180,10 +203,6 @@ a {
   -moz-transition: transform 2s;
   -ms-transition: transform 2s;
   -o-transition: transform 2s;
-  -webkit-transform: rotate(90deg) translateY(1px);
-  -moz-transform: rotate(90deg) translateY(1px);
-  -ms-transform: rotate(90deg) translateY(1px);
-  -o-transform: rotate(90deg) translateY(1px);
 }
 
 .header__burger--close {
@@ -214,7 +233,7 @@ a {
   padding-top: 16px;
 }
 
-@media (max-width: 740px) {
+@media (max-width: 767px) {
   .nav {
     display: none;
   }
@@ -249,6 +268,11 @@ a {
   color: #545454;
 }
 
+.nav__link--disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
 .start__wrap {
   max-width: 1200px;
   margin: 0 auto;
@@ -265,6 +289,7 @@ a {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   margin: 0 auto;
+  overflow: hidden;
 }
 
 @media (max-width: 1024px) {
@@ -1717,11 +1742,22 @@ a {
 .burger {
   position: absolute;
   top: 0;
-  right: -320px;
+  right: 0px;
   width: 320px;
   background: #292929;
   padding-top: 250px;
-  padding-bottom: 205px;
+  min-height: 100%;
+  z-index: 2;
+  transition: 2s;
+  transform: translateX(100%);
+  -webkit-transition: 2s;
+  -moz-transition: 2s;
+  -ms-transition: 2s;
+  -o-transition: 2s;
+  -webkit-transform: translateX(100%);
+  -moz-transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  -o-transform: translateX(100%);
 }
 
 .burger__nav {
@@ -1770,6 +1806,16 @@ a {
   outline: none;
 }
 
+.burger__link--disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+.burger__link--disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
 .burger__logo {
   position: absolute;
   top: 30px;
@@ -1788,33 +1834,6 @@ a {
 }
 
 .burger__animation {
-  transform: translateX(-320px);
-  -webkit-transform: translateX(-320px);
-  -moz-transform: translateX(-320px);
-  -ms-transform: translateX(-320px);
-  -o-transform: translateX(-320px);
-  -webkit-transition: -webkit-transform 2s;
-  transition: -webkit-transform 2s;
-  transition: transform 2s;
-  transition: transform 2s, -webkit-transform 2s;
-  -webkit-transition: transform 2s;
-  -moz-transition: transform 2s;
-  -ms-transition: transform 2s;
-  -o-transition: transform 2s;
-}
-
-.burger__animation--close {
-  transform: translateX(320px);
-  -webkit-transform: translateX(320px);
-  -moz-transform: translateX(320px);
-  -ms-transform: translateX(320px);
-  -o-transform: translateX(320px);
-  -webkit-transition: -webkit-transform 4s;
-  transition: -webkit-transform 4s;
-  transition: transform 4s;
-  transition: transform 4s, -webkit-transform 4s;
-  -webkit-transition: transform 4s;
-  -moz-transition: transform 4s;
-  -ms-transition: transform 4s;
-  -o-transition: transform 4s;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
 }
