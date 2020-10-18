@@ -12,7 +12,7 @@ const openBurger = () => {
   burgerBtn.classList.add("header__burger--open");
   burgerMenu.classList.toggle('burger__animation')
   burgerLogo.classList.toggle('burger__logo--open')
-  headerLogo.classList.toggle('header__logo--hide') 
+  headerLogo.classList.toggle('header__logo--hide')
   isBurgerOpen = true
 }
 
@@ -38,7 +38,7 @@ document.addEventListener('click', (e) => {
   let target = e.target;
 
   if (burgerMenu.contains(target) && !target.classList.contains('header__burger')) {
-   
+
   } else {
     if (isBurgerOpen) {
       closeBurger()
@@ -58,51 +58,81 @@ window.addEventListener('keydown', (evt) => {
 
 burgerLinks.forEach(item => {
   item.addEventListener('click', (evt) => {
-      if (isBurgerOpen) {
-        closeBurger()
-      }
-    })
+    if (isBurgerOpen) {
+      closeBurger()
+    }
   })
+})
 
-window.addEventListener('resize',()=>{
+window.addEventListener('resize', () => {
   if (isBurgerOpen) {
     closeBurger()
   }
 })
 
 
-// ************************************ pop_up ****************************************************************************
+// ******************** pop_up **************************
 
 const popupTemplate = document.querySelector('#popup').content
-let popupTemplateClone = popupTemplate.cloneNode(true) 
-// const learnBtn = document.querySelectorAll('.slider__btn')
+let popupTemplateClone = popupTemplate.cloneNode(true)
 const sliderList = document.querySelector('.slider__list')
 const petsSection = document.querySelector('.pets')
 let popupCloseBtn = popupTemplateClone.querySelector('.popup__close-btn')
 
 
-const supportsTemplate=()=>{
+const supportsTemplate = () => {
   return 'content' in document.createElement('template')
 }
 
-sliderList.addEventListener('click',(evt)=>{
+sliderList.addEventListener('click', (evt) => {
   evt.preventDefault()
 
-  if(evt.target.classList.contains('slider__btn')){
-    if(supportsTemplate()){
+  if (evt.target.classList.contains('slider__btn')) {
+    if (supportsTemplate()) {
       darkScreen.style.display = 'block'
       petsSection.appendChild(popupTemplateClone)
     }
-  
-    popupCloseBtn.addEventListener('click',(evt)=>{
+
+    popupCloseBtn.addEventListener('click', (evt) => {
       evt.preventDefault()
       darkScreen.style.display = 'none'
       const popup = document.querySelector('.popup')
       petsSection.removeChild(popup)
       popupTemplateClone = popupTemplate.cloneNode(true)
-      popupCloseBtn = popupTemplateClone.querySelector('.popup__close-btn')    
+      popupCloseBtn = popupTemplateClone.querySelector('.popup__close-btn')
     })
   }
- 
+
 })
+
+// ******************** draw slider item ********************
+
+
+
+fetch('./js/pets.json').then(res => res.json()).then(json => {
+  const petCardTemplate = document.querySelector('#petCard').content
+
+
+  petListInit = (count) => {
+
+    for (let i = 0; i < count; i++) {
+      const randomPet = Math.floor(Math.random() * Math.floor(json.length));
+      sliderList.appendChild(petCardTemplate.cloneNode(true))
+      const sliderItem = sliderList.querySelectorAll('.slider__item')
+      const sliderImg = sliderList.querySelectorAll('.slider__img')
+      const sliderName = sliderList.querySelectorAll('.slider__name')
+      sliderItem[i].setAttribute('id', `${json[randomPet].id}`)
+      sliderName[i].textContent = `${json[randomPet].name}`
+      sliderImg[i].setAttribute('src',`${json[randomPet].img}`)
+    }
+  }
+
+  petListInit(3)
+
+
+
+
+})
+
+
 
