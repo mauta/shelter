@@ -71,37 +71,29 @@ window.addEventListener('resize', () => {
 })
 
 
-// ******************** pop_up **************************
-
-
-
-// ******************** draw slider item ********************
 
 const sliderList = document.querySelector('.slider__list')
 
 fetch('./js/pets.json').then(res => res.json()).then(json => {
   const petCardTemplate = document.querySelector('#petCard').content
 
+  const arrpets = []
+  // petListInit = (count) => {
 
-  petListInit = (count) => {
+  //   for (let i = 0; i < count; i++) {
+  //     const randomPet = Math.floor(Math.random() * Math.floor(json.length))
+  //     sliderList.append(petCardTemplate.cloneNode(true))
+  //     const sliderItem = sliderList.querySelectorAll('.slider__item')
+  //     const sliderImg = sliderList.querySelectorAll('.slider__img')
+  //     const sliderName = sliderList.querySelectorAll('.slider__name')
+  //     sliderItem[i].setAttribute('id', `${json[randomPet].id}`)
+  //     sliderName[i].textContent = `${json[randomPet].name}`
+  //     sliderImg[i].setAttribute('src', `${json[randomPet].img}`)
+  //     arrpets.push(randomPet)
+  //   }
+  // }
 
-    for (let i = 0; i < count; i++) {
-      const randomPet = Math.floor(Math.random() * Math.floor(json.length));
-
-      sliderList.append(petCardTemplate.cloneNode(true))
-      const sliderItem = sliderList.querySelectorAll('.slider__item')
-      const sliderImg = sliderList.querySelectorAll('.slider__img')
-      const sliderName = sliderList.querySelectorAll('.slider__name')
-      sliderItem[i].setAttribute('id', `${json[randomPet].id}`)
-      sliderName[i].textContent = `${json[randomPet].name}`
-      sliderImg[i].setAttribute('src', `${json[randomPet].img}`)
-    }
-  }
-
-  petListInit(3)
-
-  const sliderItems = sliderList.querySelectorAll('.slider__item')
-
+  // petListInit(3)
 
   const popupTemplate = document.querySelector('#popup').content
   let popupTemplateClone = popupTemplate.cloneNode(true)
@@ -132,14 +124,26 @@ fetch('./js/pets.json').then(res => res.json()).then(json => {
         petsSection.querySelector('.popup__parasites').textContent = pet.parasites
       }
 
-      popupCloseBtn.addEventListener('click', (evt) => {
+      popupClose = (evt) => {
         evt.preventDefault()
         darkScreen.style.display = 'none'
         const popup = document.querySelector('.popup')
         petsSection.removeChild(popup)
         popupTemplateClone = popupTemplate.cloneNode(true)
         popupCloseBtn = popupTemplateClone.querySelector('.popup__close-btn')
+      }
+
+      popupCloseBtn.addEventListener('click', popupClose)
+
+
+      window.addEventListener('keydown', (evt) => {
+        if (evt.key === 'Escape') {
+          popupClose(evt)
+        }
       })
+
+      document.querySelector('.dark-screen').addEventListener('click',popupClose)
+
     }
 
   })
@@ -147,34 +151,97 @@ fetch('./js/pets.json').then(res => res.json()).then(json => {
   petListAddFirst = () => {
 
     const randomPet = Math.floor(Math.random() * Math.floor(json.length))
-    sliderList.prepend(petCardTemplate.cloneNode(true))
-    const sliderItem = sliderList.querySelectorAll('.slider__item')
-    const sliderImg = sliderList.querySelectorAll('.slider__img')
-    const sliderName = sliderList.querySelectorAll('.slider__name')
-    sliderItem[0].setAttribute('id', `${json[randomPet].id}`)
-    sliderName[0].textContent = `${json[randomPet].name}`
-    sliderImg[0].setAttribute('src', `${json[randomPet].img}`)
 
+    if (!arrpets.includes(randomPet)) {
+      sliderList.prepend(petCardTemplate.cloneNode(true))
+      const sliderItem = sliderList.querySelectorAll('.slider__item')
+      const sliderImg = sliderList.querySelectorAll('.slider__img')
+      const sliderName = sliderList.querySelectorAll('.slider__name')
+      sliderItem[0].setAttribute('id', `${json[randomPet].id}`)
+      sliderName[0].textContent = `${json[randomPet].name}`
+      sliderImg[0].setAttribute('src', `${json[randomPet].img}`)
+      arrpets.push(randomPet)
+    } else petListAddFirst()
   }
 
   petListAddLast = () => {
-
     const randomPet = Math.floor(Math.random() * Math.floor(json.length))
-    sliderList.append(petCardTemplate.cloneNode(true))
-    const sliderItem = sliderList.querySelectorAll('.slider__item')
-    const sliderImg = sliderList.querySelectorAll('.slider__img')
-    const sliderName = sliderList.querySelectorAll('.slider__name')
-    
-    sliderItem[sliderItem.length-1].setAttribute('id', `${json[randomPet].id}`)
-    sliderName[sliderItem.length-1].textContent = `${json[randomPet].name}`
-    sliderImg[sliderItem.length-1].setAttribute('src', `${json[randomPet].img}`)
+    if (!arrpets.includes(randomPet)) {
+      sliderList.append(petCardTemplate.cloneNode(true))
+      const sliderItem = sliderList.querySelectorAll('.slider__item')
+      const sliderImg = sliderList.querySelectorAll('.slider__img')
+      const sliderName = sliderList.querySelectorAll('.slider__name')
+
+      sliderItem[sliderItem.length - 1].setAttribute('id', `${json[randomPet].id}`)
+      sliderName[sliderItem.length - 1].textContent = `${json[randomPet].name}`
+      sliderImg[sliderItem.length - 1].setAttribute('src', `${json[randomPet].img}`)
+      arrpets.push(randomPet)
+    } else petListAddLast()
+
 
   }
 
+  petListAddFirst()
+  petListAddFirst()
+  petListAddFirst()
+
   const sliderBtnPrevious = document.querySelector('.pets__slide-btn--previous')
   const sliderBtnNext = document.querySelector('.pets__slide-btn--next')
+  let sliderItems = sliderList.querySelectorAll('.slider__item')
+  let currentItem = 0
+  // let isEnabled = true
 
-  sliderBtnPrevious.addEventListener('click', petListAddFirst)
-  sliderBtnNext.addEventListener('click', petListAddLast)
+
+  // function hideItem(direction){
+  //   isEnabled=false
+  //   sliderItems[currentItem].classList.add(direction)
+  //   sliderItems[currentItem].addEventListener('animationend',function(){
+  //     this.classList.remote('active',direction)
+  //   })
+  // }
+
+  // function showItem(direction){
+  //   isEnabled=false
+  //   sliderItems[currentItem].classList.add('next',direction)
+  //   sliderItems[currentItem].addEventListener('animationend',function(){
+  //     this.classList.remote('next',direction)
+  //     this.classList.add('active')
+  //     isEnabled = true
+  //   })
+  // }
+
+  // function nextItem(n){
+  //   hideItem('to-left')
+  //   currentItem = n +1
+  //   showItem('from-right')
+  // }
+
+  // function previous(n){
+  //   hideItem('to-right')
+  //   currentItem = n +1
+  //   showItem('from-left')
+  // }
+
+
+  sliderBtnPrevious.addEventListener('click', function () {
+    sliderItems = sliderList.querySelectorAll('.slider__item')
+    if (currentItem > 0) {
+      currentItem--
+      sliderItems[currentItem].classList.remove('slider__item--hide')
+    } else {
+      petListAddFirst()
+    }
+  })
+  sliderBtnNext.addEventListener('click', function () {
+    sliderItems = sliderList.querySelectorAll('.slider__item')
+    if (currentItem < sliderItems.length - 4) {
+      sliderItems[currentItem].classList.add('slider__item--hide')
+      currentItem++
+    } else {
+      sliderItems[currentItem].classList.add('slider__item--hide')
+      petListAddLast()
+      currentItem++
+    }
+  })
 
 })

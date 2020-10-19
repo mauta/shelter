@@ -66,7 +66,7 @@
     margin-top: -1px;
   }
 
-  &--friends{
+  &--friends {
     margin-top: 0;
   }
 }
@@ -177,7 +177,8 @@
   @include list;
   display: flex;
   flex-wrap: nowrap;
-  justify-content: space-between;
+  overflow: hidden;
+  // justify-content: space-between;
 
   @media (max-width: 1100px) {
     overflow: hidden;
@@ -196,13 +197,24 @@
   background: #FAFAFA;
   border-radius: 9px;
   overflow: hidden;
-  // margin-right: 6.8%;
+  animation: 1s ease-in-out;
+  -webkit-animation: 1s ease-in-out;
+  margin-right: 6.8%;
 
-  @media (max-width: 1200px){
-    &--friends:nth-last-child(2){
+  &--active{
+    display: block;
+  }
+
+  &--hide{
+    display: none;
+  }
+
+  @media(max-width: 1200px) {
+    &--friends:nth-last-child(2) {
       display: none;
     }
-    &--friends:last-child{
+
+    &--friends:last-child {
       display: none;
     }
   }
@@ -213,7 +225,7 @@
       display: none;
     }
 
-    &--friends:nth-last-child(2){
+    &--friends:nth-last-child(2) {
       display: none;
     }
   }
@@ -224,11 +236,11 @@
       display: none;
     }
 
-    &--friends:nth-child(2){
+    &--friends:nth-child(2) {
       display: block;
     }
 
-    &--friends:nth-child(3){
+    &--friends:nth-child(3) {
       display: block;
     }
   }
@@ -238,6 +250,43 @@
     background-color: $white;
   }
 }
+
+.to-left{
+  animation-name: left;
+}
+
+.from-right{
+  animation-name: right;
+}
+
+.to-right{
+animation-name: right;
+animation-direction: reverse;
+}
+
+.to-left{
+  animation-name: left;
+  animation-direction: reverse;
+  }
+
+@keyframes left{
+  from{
+    left:0;
+  }
+  to{
+    left: 100%;
+  }
+}  
+
+@keyframes right{
+  from{
+    left:100;
+  }
+  to{
+    left: 0;
+  }
+}  
+
 
 .slider__img {
   display: block;
