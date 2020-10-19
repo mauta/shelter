@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>shelter</title>
-  <link href="../css/style.css" rel="stylesheet">
+  <link href="../../shelter/pages/css/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -18,7 +18,7 @@
         </a>
         <ul class="nav ">
           <li class="nav__item"><a href="#about" class="nav__link nav__link-pets">About the shelter</a></li>
-          <li class="nav__item"><a href="#ourpets" class="nav__link nav__link-pets">Our pets </a></li>
+          <li class="nav__item"><a href="#ourpets" class="nav__link nav__link-pets nav__link--active">Our pets </a></li>
           <li class="nav__item"><a href="#help" class="nav__link nav__link-pets">Help the shelter</a></li>
           <li class="nav__item"><a href="#contacts" class="nav__link nav__link-pets">Contacts </a></li>
         </ul>
@@ -31,7 +31,7 @@
       <h2 class="friends_title">Our friends who<br>
         are looking for a house</h2>
       <ul class="friends__list slider">
-        <li class="slider__item slider__item--friends">
+        <!-- <li class="slider__item slider__item--friends">
           <img class="slider__img" src="../../assets/images/pets-katrine.jpg" alt="" width="270" height="270">
           <p class="slider__name">Katrine</p>
           <a class="slider__btn" href="">Learn more</a>
@@ -70,17 +70,17 @@
           <img class="slider__img" src="../../assets/images/pets-freddie.jpg" alt="" width="270" height="270">
           <p class="slider__name">Freddie</p>
           <a class="slider__btn" href="">Learn more</a>
-        </li>
+        </li> -->
       </ul>
       <div class="friends__btn-wrap">
-        <button class="friends__slide-btn friends__slide-btn--first" aria-label="первый" disabled>
+        <button class="friends__slide-btn friends__slide-btn--first" disabled aria-label="первый" >
           <svg class="friends__arrow friends__arrow--friends" transform="rotate(180)" width="25" height="11"
             viewBox="0 0 25 11" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M10.0055 6.08789L0.972265 10.7852V9.44727L8.48203 5.53125L0.972265 1.625V0.287109L10.0055 4.98438V6.08789ZM24.0766 6.08789L15.0434 10.7852V9.44727L22.5531 5.53125L15.0434 1.625V0.287109L24.0766 4.98438V6.08789Z"
               fill="#292929" />
           </svg></button>
-        <button class="friends__slide-btn friends__slide-btn--previous" aria-label="предыдущий" disabled>
+        <button class="friends__slide-btn friends__slide-btn--previous" disabled aria-label="предыдущий" >
           <svg class="friends__arrow friends__arrow--friends" transform="rotate(180)" width="10" height="11"
             viewBox="0 0 10 11" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -130,9 +130,15 @@
 
       </div>
     </div>
-
+    <template id="petCard">
+      <li class="slider__item">
+        <img class="slider__img" src="../../assets/images/pets-katrine.jpg" alt="" width="270" height="270">
+        <p class="slider__name">Katrine</p>
+        <a class="slider__btn" href="">Learn more</a>
+      </li>
+     </template>
   </footer>
-
+  <script src="js/petsscript.js"></script>
 </body>
 
 

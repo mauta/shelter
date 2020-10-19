@@ -1,6 +1,6 @@
 .start {
   background:
-    url(../../assets/images/noise_transparent.png), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
+    url(../../../assets/images/noise_transparent.png), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
     
 }
 
@@ -152,6 +152,11 @@
     pointer-events: none;
     cursor: default; 
   }
+
+  &--active{
+    border-bottom: 3px solid $base-pink;
+    outline: none;
+  }
 }
 
 
@@ -225,7 +230,6 @@
   @include color-button;
   background-color: $base-pink;
   width: 207px;
-  padding-left: 6px;
 
   @media (max-width: 1024px) {
     margin: 0 auto;

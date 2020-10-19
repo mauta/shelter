@@ -76,24 +76,21 @@ const sliderList = document.querySelector('.slider__list')
 
 fetch('./js/pets.json').then(res => res.json()).then(json => {
   const petCardTemplate = document.querySelector('#petCard').content
+  let pageSize 
+
+  initPageSize = () => {
+    if (window.innerWidth < 768) {
+      pageSize = 'mobile'
+    } else if (window.innerWidth < 1024) {
+      pageSize = 'tablet'
+    } else {
+      pageSize = 'decktop'
+    }
+  }
+
+  initPageSize()
 
   const arrpets = []
-  // petListInit = (count) => {
-
-  //   for (let i = 0; i < count; i++) {
-  //     const randomPet = Math.floor(Math.random() * Math.floor(json.length))
-  //     sliderList.append(petCardTemplate.cloneNode(true))
-  //     const sliderItem = sliderList.querySelectorAll('.slider__item')
-  //     const sliderImg = sliderList.querySelectorAll('.slider__img')
-  //     const sliderName = sliderList.querySelectorAll('.slider__name')
-  //     sliderItem[i].setAttribute('id', `${json[randomPet].id}`)
-  //     sliderName[i].textContent = `${json[randomPet].name}`
-  //     sliderImg[i].setAttribute('src', `${json[randomPet].img}`)
-  //     arrpets.push(randomPet)
-  //   }
-  // }
-
-  // petListInit(3)
 
   const popupTemplate = document.querySelector('#popup').content
   let popupTemplateClone = popupTemplate.cloneNode(true)
@@ -181,9 +178,21 @@ fetch('./js/pets.json').then(res => res.json()).then(json => {
 
   }
 
-  petListAddFirst()
-  petListAddFirst()
-  petListAddFirst()
+  initSlider = (pageSize) => {
+    if(pageSize === 'mobile'){
+      petListAddFirst()
+    }
+    if (pageSize === 'tablet') {
+      petListAddFirst()
+      petListAddFirst()
+    } 
+    if (pageSize === 'decktop'){
+      petListAddFirst()
+      petListAddFirst()
+    }     
+  }
+
+  initSlider(pageSize)
 
   const sliderBtnPrevious = document.querySelector('.pets__slide-btn--previous')
   const sliderBtnNext = document.querySelector('.pets__slide-btn--next')
@@ -228,14 +237,18 @@ fetch('./js/pets.json').then(res => res.json()).then(json => {
     if (currentItem > 0) {
       currentItem--
       sliderItems[currentItem].classList.remove('slider__item--hide')
+      sliderItems[currentItem+3].classList.add('slider__item--hide')
     } else {
+      
       petListAddFirst()
+      sliderItems[currentItem+2].classList.add('slider__item--hide')
     }
   })
   sliderBtnNext.addEventListener('click', function () {
     sliderItems = sliderList.querySelectorAll('.slider__item')
     if (currentItem < sliderItems.length - 4) {
       sliderItems[currentItem].classList.add('slider__item--hide')
+      sliderItems[currentItem+3].classList.remove('slider__item--hide')
       currentItem++
     } else {
       sliderItems[currentItem].classList.add('slider__item--hide')
@@ -245,3 +258,11 @@ fetch('./js/pets.json').then(res => res.json()).then(json => {
   })
 
 })
+
+  // window.addEventListener('resize', () => {
+  //   let oldPageSize = pageSize
+  //   initPageSize()
+  //   if (oldPageSize !== pageSize) {
+     
+  //   }
+  // })

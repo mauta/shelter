@@ -178,7 +178,8 @@
   display: flex;
   flex-wrap: nowrap;
   overflow: hidden;
-  // justify-content: space-between;
+  background-color: yellow;
+  justify-content: space-between;
 
   @media (max-width: 1100px) {
     overflow: hidden;
@@ -188,18 +189,32 @@
   @media (max-width: 900px) {
     justify-content: space-between;
   }
+
+  @media (max-width: 785px) {
+    justify-content: center;
+    margin: 0 auto;
+  }
 }
 
 .slider__item {
   box-sizing: border-box;
-  min-width: 270px;
+  width: 270px;
   padding-bottom: 30px;
   background: #FAFAFA;
   border-radius: 9px;
   overflow: hidden;
   animation: 1s ease-in-out;
   -webkit-animation: 1s ease-in-out;
-  margin-right: 6.8%;
+  // margin-right: 9.1%;
+
+  // @media (max-width: 1279px){
+  //   margin-right: 7%;
+
+  // }
+
+  @media (max-width: 786px) {
+    margin: 0 auto;
+  }
 
   &--active{
     display: block;
@@ -208,42 +223,7 @@
   &--hide{
     display: none;
   }
-
-  @media(max-width: 1200px) {
-    &--friends:nth-last-child(2) {
-      display: none;
-    }
-
-    &--friends:last-child {
-      display: none;
-    }
-  }
-
-  @media (max-width: 1100px) {
-
-    &:last-child {
-      display: none;
-    }
-
-    &--friends:nth-last-child(2) {
-      display: none;
-    }
-  }
-
-  @media (max-width: 740px) {
-
-    &:not(:first-child) {
-      display: none;
-    }
-
-    &--friends:nth-child(2) {
-      display: block;
-    }
-
-    &--friends:nth-child(3) {
-      display: block;
-    }
-  }
+ 
 
   &:hover {
     box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
