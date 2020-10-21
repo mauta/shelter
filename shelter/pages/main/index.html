@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>shelter</title>
-  <link href="../../shelter/pages/css/style.css" rel="stylesheet">
+  <link href="../../../shelter/pages/css/style.css" rel="stylesheet">
 </head>
 
 <body class="body">
@@ -106,7 +106,23 @@
           <a class="pets__button" href="pets.html">Get to know the rest</a>
         </div>
       </div>
-
+      <section class="popup">
+        <img class="popup__img" src="" alt="порода" width="500" height="500">
+        <div class="popup__content">
+          <h3 class="popup__name"></h3>
+          <p class="popup__type-breed"></p>
+          <p class="popup__text"></p>
+          <ul class="popup__list">
+            <li class="popup__item">Age: <span class="popup__age"></span></li>
+            <li class="popup__item">Inoculations: <span class="popup__inoculations"></span></li>
+            <li class="popup__item">Diseases: <span class="popup__diseases"></span> </li>
+            <li class="popup__item">Parasites: <span class="popup__parasites"></span> </li>
+  
+          </ul>
+  
+          <button class="popup__close-btn" type="button"><span class="visually-hidden">close</span></button>
+        </div>
+      </section>
 
 
     </section>
@@ -206,31 +222,9 @@
   </li>
  </template>
 
-  <template id="popup">
-    <section class="popup">
-      <img class="popup__img" src="../../assets/images/pets-jennifer.jpg" alt="порода" width="500" height="500">
-      <div class="popup__content">
-        <h3 class="popup__name">Jennifer</h3>
-        <p class="popup__type-breed">Dog - Labrador</p>
-        <p class="popup__text">Jennifer is a sweet 2 months old Labrador that is patiently waiting to find a new forever
-          home. This girl really enjoys being able to go outside to run and play, but won't hesitate to play up a storm
-          in the house if she has all of her favorite toys.</p>
-        <ul class="popup__list">
-          <li class="popup__item">Age: <span class="popup__age">2 months</span></li>
-          <li class="popup__item">Inoculations: <span class="popup__inoculations">none</span></li>
-          <li class="popup__item">Diseases: <span class="popup__diseases">none</span> </li>
-          <li class="popup__item">Parasites: <span class="popup__parasites">none</span> </li>
-
-        </ul>
-
-        <button class="popup__close-btn" type="button"><span class="visually-hidden">close</span></button>
-      </div>
-    </section>
-  </template>
 
   <div class="dark-screen"></div>
   <script src="js/pets.json"></script>
-  <script src="js/generate_json.js"></script>
   <script src="js/script.js"></script>
 </body>
 

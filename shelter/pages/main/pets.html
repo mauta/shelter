@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>shelter</title>
-  <link href="../../shelter/pages/css/style.css" rel="stylesheet">
+  <link href="../../../shelter/pages/css/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -17,7 +17,7 @@
             alt="Cozy House, Shelter for pets in Boston" width="184" height="60">
         </a>
         <ul class="nav ">
-          <li class="nav__item"><a href="#about" class="nav__link nav__link-pets">About the shelter</a></li>
+          <li class="nav__item"><a href="index.html" class="nav__link nav__link-pets">About the shelter</a></li>
           <li class="nav__item"><a href="#ourpets" class="nav__link nav__link-pets nav__link--active">Our pets </a></li>
           <li class="nav__item"><a href="#help" class="nav__link nav__link-pets">Help the shelter</a></li>
           <li class="nav__item"><a href="#contacts" class="nav__link nav__link-pets">Contacts </a></li>
@@ -72,6 +72,25 @@
           <a class="slider__btn" href="">Learn more</a>
         </li> -->
       </ul>
+      <section class="popup">
+        <img class="popup__img" src="../../assets/images/pets-jennifer.jpg" alt="порода" width="500" height="500">
+        <div class="popup__content">
+          <h3 class="popup__name">Jennifer</h3>
+          <p class="popup__type-breed">Dog - Labrador</p>
+          <p class="popup__text">Jennifer is a sweet 2 months old Labrador that is patiently waiting to find a new forever
+            home. This girl really enjoys being able to go outside to run and play, but won't hesitate to play up a storm
+            in the house if she has all of her favorite toys.</p>
+          <ul class="popup__list">
+            <li class="popup__item">Age: <span class="popup__age">2 months</span></li>
+            <li class="popup__item">Inoculations: <span class="popup__inoculations">none</span></li>
+            <li class="popup__item">Diseases: <span class="popup__diseases">none</span> </li>
+            <li class="popup__item">Parasites: <span class="popup__parasites">none</span> </li>
+  
+          </ul>
+  
+          <button class="popup__close-btn" type="button"><span class="visually-hidden">close</span></button>
+        </div>
+      </section>
       <div class="friends__btn-wrap">
         <button class="friends__slide-btn friends__slide-btn--first" disabled aria-label="первый" >
           <svg class="friends__arrow friends__arrow--friends" transform="rotate(180)" width="25" height="11"
@@ -137,6 +156,7 @@
         <a class="slider__btn" href="">Learn more</a>
       </li>
      </template>
+     <div class="dark-screen"></div>
   </footer>
   <script src="js/petsscript.js"></script>
 </body>

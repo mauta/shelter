@@ -32,20 +32,8 @@ burgerBtn.addEventListener('click', (e) => {
 
 })
 
+document.querySelector('.dark-screen').addEventListener('click',closeBurger())
 
-
-document.addEventListener('click', (e) => {
-  let target = e.target;
-
-  if (burgerMenu.contains(target) && !target.classList.contains('header__burger')) {
-
-  } else {
-    if (isBurgerOpen) {
-      closeBurger()
-    }
-
-  }
-})
 
 window.addEventListener('keydown', (evt) => {
   if (evt.key === 'Escape') {
@@ -76,7 +64,7 @@ const sliderList = document.querySelector('.slider__list')
 
 fetch('./js/pets.json').then(res => res.json()).then(json => {
   const petCardTemplate = document.querySelector('#petCard').content
-  let pageSize 
+  let pageSize
 
   initPageSize = () => {
     if (window.innerWidth < 768) {
@@ -92,56 +80,49 @@ fetch('./js/pets.json').then(res => res.json()).then(json => {
 
   const arrpets = []
 
-  const popupTemplate = document.querySelector('#popup').content
-  let popupTemplateClone = popupTemplate.cloneNode(true)
+
+  const popup = document.querySelector('.popup')
+  const popupCloseBtn = popup.querySelector('.popup__close-btn')
   const petsSection = document.querySelector('.pets')
-  let popupCloseBtn = popupTemplateClone.querySelector('.popup__close-btn')
 
 
-  const supportsTemplate = () => {
-    return 'content' in document.createElement('template')
-  }
 
   sliderList.addEventListener('click', (evt) => {
     evt.preventDefault()
 
-    if (evt.target.classList.contains('slider__btn')) {
-      if (supportsTemplate()) {
-        darkScreen.style.display = 'block'
-        const petId = evt.target.parentNode.getAttribute('id')
-        const pet = json.find(el => el.id === petId)
-        petsSection.append(popupTemplateClone)
-        petsSection.querySelector('.popup__img').setAttribute('src', pet.img)
-        petsSection.querySelector('.popup__name').textContent = pet.name
-        petsSection.querySelector('.popup__type-breed').textContent = `${pet.type} - ${pet.breed}`
-        petsSection.querySelector('.popup__text').textContent = pet.description
-        petsSection.querySelector('.popup__age').textContent = pet.age
-        petsSection.querySelector('.popup__inoculations').textContent = pet.inoculations
-        petsSection.querySelector('.popup__diseases').textContent = pet.diseases
-        petsSection.querySelector('.popup__parasites').textContent = pet.parasites
-      }
-
-      popupClose = (evt) => {
-        evt.preventDefault()
-        darkScreen.style.display = 'none'
-        const popup = document.querySelector('.popup')
-        petsSection.removeChild(popup)
-        popupTemplateClone = popupTemplate.cloneNode(true)
-        popupCloseBtn = popupTemplateClone.querySelector('.popup__close-btn')
-      }
-
-      popupCloseBtn.addEventListener('click', popupClose)
-
-
-      window.addEventListener('keydown', (evt) => {
-        if (evt.key === 'Escape') {
-          popupClose(evt)
-        }
-      })
-
-      document.querySelector('.dark-screen').addEventListener('click',popupClose)
-
+    if (evt.target.parentNode.classList.contains('slider__item')) {
+      darkScreen.style.display = 'block'
+      const petId = evt.target.parentNode.getAttribute('id')
+      const pet = json.find(el => el.id === petId)
+      popup.classList.add('popup--active')
+      popup.querySelector('.popup__img').setAttribute('src', pet.img)
+      popup.querySelector('.popup__name').textContent = pet.name
+      popup.querySelector('.popup__type-breed').textContent = `${pet.type} - ${pet.breed}`
+      popup.querySelector('.popup__text').textContent = pet.description
+      popup.querySelector('.popup__age').textContent = pet.age
+      popup.querySelector('.popup__inoculations').textContent = pet.inoculations
+      popup.querySelector('.popup__diseases').textContent = pet.diseases
+      popup.querySelector('.popup__parasites').textContent = pet.parasites
     }
+
+    popupClose = (evt) => {
+      evt.preventDefault()
+      darkScreen.style.display = 'none'
+      popup.classList.remove('popup--active')
+    }
+
+    popupCloseBtn.addEventListener('click', popupClose)
+
+
+    window.addEventListener('keydown', (evt) => {
+      if (evt.key === 'Escape') {
+        popupClose(evt)
+      }
+    })
+
+    document.querySelector('.dark-screen').addEventListener('click', popupClose)
+
+
 
   })
 
@@ -179,17 +160,18 @@ fetch('./js/pets.json').then(res => res.json()).then(json => {
   }
 
   initSlider = (pageSize) => {
-    if(pageSize === 'mobile'){
+    if (pageSize === 'mobile') {
       petListAddFirst()
     }
     if (pageSize === 'tablet') {
       petListAddFirst()
       petListAddFirst()
-    } 
-    if (pageSize === 'decktop'){
+    }
+    if (pageSize === 'decktop') {
       petListAddFirst()
       petListAddFirst()
-    }     
+      petListAddFirst()
+    }
   }
 
   initSlider(pageSize)
@@ -237,18 +219,19 @@ fetch('./js/pets.json').then(res => res.json()).then(json => {
     if (currentItem > 0) {
       currentItem--
       sliderItems[currentItem].classList.remove('slider__item--hide')
-      sliderItems[currentItem+3].classList.add('slider__item--hide')
+      sliderItems[currentItem + 3].classList.add('slider__item--hide')
     } else {
-      
+
       petListAddFirst()
-      sliderItems[currentItem+2].classList.add('slider__item--hide')
+      sliderItems[currentItem + 2].classList.add('slider__item--hide')
     }
   })
+
   sliderBtnNext.addEventListener('click', function () {
     sliderItems = sliderList.querySelectorAll('.slider__item')
     if (currentItem < sliderItems.length - 4) {
       sliderItems[currentItem].classList.add('slider__item--hide')
-      sliderItems[currentItem+3].classList.remove('slider__item--hide')
+      sliderItems[currentItem + 3].classList.remove('slider__item--hide')
       currentItem++
     } else {
       sliderItems[currentItem].classList.add('slider__item--hide')
@@ -259,10 +242,10 @@ fetch('./js/pets.json').then(res => res.json()).then(json => {
 
 })
 
-  // window.addEventListener('resize', () => {
-  //   let oldPageSize = pageSize
-  //   initPageSize()
-  //   if (oldPageSize !== pageSize) {
-     
-  //   }
-  // })
+// window.addEventListener('resize', () => {
+//   let oldPageSize = pageSize
+//   initPageSize()
+//   if (oldPageSize !== pageSize) {
+
+//   }
+// })

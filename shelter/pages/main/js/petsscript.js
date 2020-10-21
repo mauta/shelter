@@ -1,6 +1,9 @@
+const darkScreen = document.querySelector('.dark-screen')
+
 fetch('./js/pets.json').then(res => res.json()).then(json => {
   const petCardTemplate = document.querySelector('#petCard').content
   const freindsList = document.querySelector('.friends__list')
+  
   const arrpets = []
   const PETS_COUNT = 48
   let pageSize
@@ -10,18 +13,12 @@ fetch('./js/pets.json').then(res => res.json()).then(json => {
   initPageSize = () => {
     if (window.innerWidth < 786) {
       pageSize = 'mobile'
-      console.log(window.innerWidth)
-      console.log(pageSize)
     }
-    if (window.innerWidth <1221  && window.innerWidth > 785) {
+    if (window.innerWidth < 1221 && window.innerWidth > 785) {
       pageSize = 'tablet'
-      console.log(window.innerWidth)
-      console.log(pageSize)
     }
     if (window.innerWidth > 1220) {
       pageSize = 'decktop'
-      console.log(window.innerWidth)
-      console.log(pageSize)
     }
   }
 
@@ -41,12 +38,37 @@ fetch('./js/pets.json').then(res => res.json()).then(json => {
 
   getLastPageNumber()
 
+  // function shuffle(array) {
+  //   let a = array.sort(() => Math.random() - 0.5);
+  //   return a
+  // }
+
+  // function makeArr(array) {
+  //   let res = []
+  //   for (let i = 0; i < 6; i++) {
+  //     let a = shuffle(array)
+  //     res = res.concat(a)
+  //   }
+
+  //   return res
+  // }
+
   generatePets = () => {
+    // let res = []
+    // for (let i = 0; i < 6; i++) {
+    //   let a = shuffle(array)
+    //   res = res.concat(a)
+    // }
+
+    // return res
+
     while (arrpets.length < PETS_COUNT) {
       let randomPet = Math.floor(Math.random() * Math.floor(json.length))
-      if (!arrpets.includes(randomPet)) {
-        arrpets.push(randomPet)
-      }
+      // if (!arrpets.includes(randomPet)) {
+      //   arrpets.push(randomPet)
+      // }
+      arrpets.push(randomPet)
+
     }
   }
 
@@ -60,6 +82,7 @@ fetch('./js/pets.json').then(res => res.json()).then(json => {
     sliderItem[sliderItem.length - 1].setAttribute('id', `${json[itemNumber].id}`)
     sliderName[sliderItem.length - 1].textContent = `${json[itemNumber].name}`
     sliderImg[sliderItem.length - 1].setAttribute('src', `${json[itemNumber].img}`)
+    
   }
 
 
@@ -79,6 +102,46 @@ fetch('./js/pets.json').then(res => res.json()).then(json => {
         petAdd(arrpets[i])
       }
     }
+    const friendsList = document.querySelector('.friends__list')
+    const popup = document.querySelector('.popup')
+    const popupCloseBtn = popup.querySelector('.popup__close-btn')
+
+    friendsList.addEventListener('click',(evt)=>{
+      evt.preventDefault()
+      if(evt.target.parentNode.classList.contains('slider__item')){
+        darkScreen.style.display = 'block'
+        const petId = evt.target.parentNode.getAttribute('id')
+        const pet = json.find(el => el.id === petId)
+        popup.classList.add('popup--active')
+        popup.querySelector('.popup__img').setAttribute('src', pet.img)
+        popup.querySelector('.popup__name').textContent = pet.name
+        popup.querySelector('.popup__type-breed').textContent = `${pet.type} - ${pet.breed}`
+        popup.querySelector('.popup__text').textContent = pet.description
+        popup.querySelector('.popup__age').textContent = pet.age
+        popup.querySelector('.popup__inoculations').textContent = pet.inoculations
+        popup.querySelector('.popup__diseases').textContent = pet.diseases
+        popup.querySelector('.popup__parasites').textContent = pet.parasites
+      }
+
+      popupClose = (evt) => {
+        evt.preventDefault()
+        darkScreen.style.display = 'none'
+        popup.classList.remove('popup--active')        
+      }
+
+      popupCloseBtn.addEventListener('click', popupClose)
+
+      window.addEventListener('keydown', (evt) => {
+        if (evt.key === 'Escape') {
+          popupClose(evt)
+        }
+      })
+
+      document.querySelector('.dark-screen').addEventListener('click',popupClose)
+
+    })
+ 
+
   }
 
   draw(pageNumber)
@@ -157,6 +220,7 @@ fetch('./js/pets.json').then(res => res.json()).then(json => {
     nextBtn.removeAttribute('disabled')
   })
 
+ 
 
 
 

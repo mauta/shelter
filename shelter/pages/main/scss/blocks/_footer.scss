@@ -1,6 +1,6 @@
 .footer {
   background:
-    url(../../../assets/images/noise_transparent.png), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
+    url(../../assets/images/noise_transparent.png), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
 }
 
 .footer__wrap {
@@ -125,7 +125,7 @@
   &::before {
     display: block;
     position: absolute;
-    content: url(../../../assets/images/icon-marker.svg);
+    content: url(../../assets/images/icon-marker.svg);
     width: 22px;
     height: 32px;
     left: -1px;
@@ -138,7 +138,7 @@
   &::before {
     display: block;
     position: absolute;
-    content: url(../../../assets/images/icon-email.svg);
+    content: url(../../assets/images/icon-email.svg);
     width: 22px;
     height: 32px;
     left: 0;
@@ -152,7 +152,7 @@
   &::before {
     display: block;
     position: absolute;
-    content: url(../../../assets/images/icon-phone.svg);
+    content: url(../../assets/images/icon-phone.svg);
     width: 22px;
     height: 32px;
     left: 0;
