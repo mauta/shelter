@@ -86,7 +86,7 @@ fetch('./js/pets.json').then(res => res.json()).then(json => {
   initPageSize = () => {
     if (window.innerWidth < 768) {
       pageSize = 'mobile'
-    } else if (window.innerWidth < 1024) {
+    } else if (window.innerWidth < 1100) {
       pageSize = 'tablet'
     } else {
       pageSize = 'decktop'
@@ -94,8 +94,6 @@ fetch('./js/pets.json').then(res => res.json()).then(json => {
   }
 
   initPageSize()
-
-  const arrpets = []
 
 
   const popup = document.querySelector('.popup')
@@ -128,105 +126,104 @@ fetch('./js/pets.json').then(res => res.json()).then(json => {
       popup.classList.remove('popup--active')
     }
 
-    popupCloseBtn.addEventListener('click', popupClose)
-
-
     window.addEventListener('keydown', (evt) => {
       if (evt.key === 'Escape') {
         popupClose(evt)
       }
     })
 
+    popupCloseBtn.addEventListener('click', popupClose)
+
     document.querySelector('.dark-screen').addEventListener('click', popupClose)
-
-
-
   })
 
-  petListAddFirst = () => {
 
-    const randomPet = Math.floor(Math.random() * Math.floor(json.length))
+  let arrpets = []
 
-    if (!arrpets.includes(randomPet)) {
-      sliderList.prepend(petCardTemplate.cloneNode(true))
-      const sliderItem = sliderList.querySelectorAll('.slider__item')
-      const sliderImg = sliderList.querySelectorAll('.slider__img')
-      const sliderName = sliderList.querySelectorAll('.slider__name')
-      sliderItem[0].setAttribute('id', `${json[randomPet].id}`)
-      sliderName[0].textContent = `${json[randomPet].name}`
-      sliderImg[0].setAttribute('src', `${json[randomPet].img}`)
-      arrpets.push(randomPet)
-    } else petListAddFirst()
+  generatePets = () => {
+    while (arrpets.length < 3) {
+      let randomPet = Math.floor(Math.random() * Math.floor(json.length))
+      if (!arrpets.includes(randomPet)) {
+        console.log('randomPet ' + randomPet)
+        arrpets.push(randomPet)
+      }
+         console.log('arrpets ' + arrpets)
+    }
   }
 
-  petListAddLast = () => {
-    const randomPet = Math.floor(Math.random() * Math.floor(json.length))
-    if (!arrpets.includes(randomPet)) {
-      sliderList.append(petCardTemplate.cloneNode(true))
-      const sliderItem = sliderList.querySelectorAll('.slider__item')
-      const sliderImg = sliderList.querySelectorAll('.slider__img')
-      const sliderName = sliderList.querySelectorAll('.slider__name')
+  generatePets()
 
-      sliderItem[sliderItem.length - 1].setAttribute('id', `${json[randomPet].id}`)
-      sliderName[sliderItem.length - 1].textContent = `${json[randomPet].name}`
-      sliderImg[sliderItem.length - 1].setAttribute('src', `${json[randomPet].img}`)
-      arrpets.push(randomPet)
-    } else petListAddLast()
+  petAdd = (i,itemNumber) => {
+    sliderList.prepend(petCardTemplate.cloneNode(true))
+    const sliderItem = sliderList.querySelectorAll('.slider__item')
+    const sliderImg = sliderList.querySelectorAll('.slider__img')
+    const sliderName = sliderList.querySelectorAll('.slider__name')
+    sliderItem[0].setAttribute('id', `${json[itemNumber].id}`)
+    sliderName[0].textContent = `${json[itemNumber].name}`
+    sliderImg[0].setAttribute('src', `${json[itemNumber].img}`)
   }
 
-  initSlider = (pageSize) => {
-    if (pageSize === 'mobile') {
-      petListAddFirst()
+  draw = () => {
+    for (let i = 0; i < 3; i++) {
+      petAdd(i,arrpets[i])
+    }
+    const sliderItems = document.querySelectorAll('.slider__item')
+    if (pageSize === 'decktop') {
+ 
     }
     if (pageSize === 'tablet') {
-      petListAddFirst()
-      petListAddFirst()
+      let a = sliderItems[2]
+      a.style.display = 'none'
     }
-    if (pageSize === 'decktop') {
-      petListAddFirst()
-      petListAddFirst()
-      petListAddFirst()
+    if (pageSize === 'mobile') {
+      let a = sliderItems[2]
+      let b = sliderItems[1]
+      a.style.display = 'none'
+      b.style.display = 'none'
+    }
+  }
+  draw()
+
+  delPets = () => {
+    while (sliderList.firstChild) {
+      sliderList.removeChild(sliderList.firstChild);
     }
   }
 
-  initSlider(pageSize)
+  window.addEventListener('resize', () => {
+    let oldPageSize = pageSize
+    initPageSize()
+
+    if (oldPageSize !== pageSize) {
+      const sliderItems = document.querySelectorAll('.slider__item')
+      let a = sliderItems[1]
+      let b = sliderItems[2]
+
+      if (pageSize === 'tablet' && oldPageSize === 'decktop') {
+        b.style.display = 'none'
+      }
+
+      if (pageSize === 'tablet' && oldPageSize === 'mobile') {
+        a.style.display = 'block'
+      }
+
+      if (pageSize === 'mobile') {
+        a.style.display = 'none'
+        b.style.display = 'none'
+      }
+
+      if (pageSize === 'decktop') {
+        a.style.display = 'block'
+        b.style.display = 'block'
+      }
+    }
+  })
 
   const sliderBtnPrevious = document.querySelector('.pets__slide-btn--previous')
   const sliderBtnNext = document.querySelector('.pets__slide-btn--next')
   let sliderItems = sliderList.querySelectorAll('.slider__item')
   let currentItem = 0
-  // let isEnabled = true
 
-
-  // function hideItem(direction){
-  //   isEnabled=false
-  //   sliderItems[currentItem].classList.add(direction)
-  //   sliderItems[currentItem].addEventListener('animationend',function(){
-  //     this.classList.remote('active',direction)
-  //   })
-  // }
-
-  // function showItem(direction){
-  //   isEnabled=false
-  //   sliderItems[currentItem].classList.add('next',direction)
-  //   sliderItems[currentItem].addEventListener('animationend',function(){
-  //     this.classList.remote('next',direction)
-  //     this.classList.add('active')
-  //     isEnabled = true
-  //   })
-  // }
-
-  // function nextItem(n){
-  //   hideItem('to-left')
-  //   currentItem = n +1
-  //   showItem('from-right')
-  // }
-
-  // function previous(n){
-  //   hideItem('to-right')
-  //   currentItem = n +1
-  //   showItem('from-left')
-  // }
 
 
   sliderBtnPrevious.addEventListener('click', function () {

@@ -876,7 +876,6 @@ a {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   overflow: hidden;
-  background-color: yellow;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -884,7 +883,6 @@ a {
 
 @media (max-width: 1100px) {
   .slider__list {
-    overflow: hidden;
     -ms-flex-pack: distribute;
         justify-content: space-around;
   }
@@ -925,14 +923,6 @@ a {
   }
 }
 
-.slider__item--active {
-  display: block;
-}
-
-.slider__item--hide {
-  display: none;
-}
-
 .slider__item:hover {
   -webkit-box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
           box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
@@ -943,23 +933,39 @@ a {
 .to-left {
   -webkit-animation-name: left;
           animation-name: left;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 
 .from-right {
   -webkit-animation-name: right;
           animation-name: right;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 
 .to-right {
   -webkit-animation-name: right;
           animation-name: right;
   animation-direction: reverse;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 
 .to-left {
   -webkit-animation-name: left;
           animation-name: left;
   animation-direction: reverse;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 
 @-webkit-keyframes left {
@@ -982,7 +988,7 @@ a {
 
 @-webkit-keyframes right {
   from {
-    left: 100;
+    left: 100%;
   }
   to {
     left: 0;
@@ -991,7 +997,7 @@ a {
 
 @keyframes right {
   from {
-    left: 100;
+    left: 100%;
   }
   to {
     left: 0;

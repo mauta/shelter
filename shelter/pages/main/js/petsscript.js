@@ -114,30 +114,7 @@ fetch('./js/pets.json').then(res => res.json()).then(json => {
 
   getLastPageNumber()
 
-  // function shuffle(array) {
-  //   let a = array.sort(() => Math.random() - 0.5);
-  //   return a
-  // }
-
-  // function makeArr(array) {
-  //   let res = []
-  //   for (let i = 0; i < 6; i++) {
-  //     let a = shuffle(array)
-  //     res = res.concat(a)
-  //   }
-
-  //   return res
-  // }
-
   generatePets = () => {
-    // let res = []
-    // for (let i = 0; i < 6; i++) {
-    //   let a = shuffle(array)
-    //   res = res.concat(a)
-    // }
-
-    // return res
-
     while (arrpets.length < PETS_COUNT) {
       let randomPet = Math.floor(Math.random() * Math.floor(json.length))
       // if (!arrpets.includes(randomPet)) {

@@ -23,7 +23,6 @@
     padding-top: 14.2%;
     padding-bottom: 0%;
   }
-
 }
 
 .pets__title {
@@ -40,7 +39,6 @@
     margin-bottom: 10.1%;
     padding-left: -1px;
     padding-top: 0;
-
   }
 
   @media (max-width: 740px) {
@@ -178,12 +176,10 @@
   display: flex;
   flex-wrap: nowrap;
   overflow: hidden;
-  background-color: yellow;
   justify-content: space-between;
 
   @media (max-width: 1100px) {
-    overflow: hidden;
-    justify-content: space-around;
+   justify-content: space-around;
   }
 
   @media (max-width: 900px) {
@@ -205,25 +201,10 @@
   overflow: hidden;
   animation: 1s ease-in-out;
   -webkit-animation: 1s ease-in-out;
-  // margin-right: 9.1%;
-
-  // @media (max-width: 1279px){
-  //   margin-right: 7%;
-
-  // }
 
   @media (max-width: 786px) {
     margin: 0 auto;
   }
-
-  &--active{
-    display: block;
-  }
-
-  &--hide{
-    display: none;
-  }
- 
 
   &:hover {
     box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
@@ -234,20 +215,28 @@
 
 .to-left{
   animation-name: left;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
 }
 
 .from-right{
   animation-name: right;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
 }
 
 .to-right{
 animation-name: right;
 animation-direction: reverse;
+animation-duration: 3s;
+animation-fill-mode: forwards;
 }
 
 .to-left{
   animation-name: left;
   animation-direction: reverse;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
   }
 
 @keyframes left{
@@ -261,7 +250,7 @@ animation-direction: reverse;
 
 @keyframes right{
   from{
-    left:100;
+    left:100%;
   }
   to{
     left: 0;
