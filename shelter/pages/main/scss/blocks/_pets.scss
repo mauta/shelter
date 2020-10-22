@@ -51,6 +51,10 @@
 .pets__slider {
   grid-column-start: 2;
   grid-column-end: 3;
+  overflow: hidden;
+  display: flex;
+
+
 
   @media (max-width: 740px) {
     margin-bottom: 18%;
@@ -175,11 +179,12 @@
   @include list;
   display: flex;
   flex-wrap: nowrap;
-  overflow: hidden;
   justify-content: space-between;
+  position: relative;
+  min-width: 100%;
 
   @media (max-width: 1100px) {
-   justify-content: space-around;
+    justify-content: space-around;
   }
 
   @media (max-width: 900px) {
@@ -193,8 +198,9 @@
 }
 
 .slider__item {
+  position: relative;
   box-sizing: border-box;
-  width: 270px;
+  min-width: 270px;
   padding-bottom: 30px;
   background: #FAFAFA;
   border-radius: 9px;
@@ -213,50 +219,51 @@
   }
 }
 
-.to-left{
+.to-left {
   animation-name: left;
   animation-duration: 3s;
   animation-fill-mode: forwards;
 }
 
-.from-right{
+.from-right {
   animation-name: right;
   animation-duration: 3s;
   animation-fill-mode: forwards;
 }
 
-.to-right{
-animation-name: right;
-animation-direction: reverse;
-animation-duration: 3s;
-animation-fill-mode: forwards;
+.to-right {
+  animation-name: right;
+  animation-duration: 3s;
+  animation-direction: reverse;
+  animation-fill-mode: forwards;
 }
 
-.to-left{
+.from-left {
   animation-name: left;
-  animation-direction: reverse;
   animation-duration: 3s;
+  animation-direction: reverse;
   animation-fill-mode: forwards;
-  }
+}
 
-@keyframes left{
-  from{
-    left:0;
-  }
-  to{
-    left: 100%;
-  }
-}  
-
-@keyframes right{
-  from{
-    left:100%;
-  }
-  to{
+@keyframes left {
+  from {
     left: 0;
   }
-}  
 
+  to {
+    left: -100%
+  }
+}
+
+@keyframes rigth {
+  from {
+    left: 100%;
+  }
+
+  to {
+    left: 0;
+  }
+}
 
 .slider__img {
   display: block;

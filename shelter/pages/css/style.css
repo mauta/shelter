@@ -677,6 +677,10 @@ a {
   -ms-grid-column: 2;
       grid-column-start: 2;
   grid-column-end: 3;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 @media (max-width: 740px) {
@@ -875,10 +879,11 @@ a {
   display: flex;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  overflow: hidden;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  position: relative;
+  min-width: 100%;
 }
 
 @media (max-width: 1100px) {
@@ -906,9 +911,10 @@ a {
 }
 
 .slider__item {
+  position: relative;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  width: 270px;
+  min-width: 270px;
   padding-bottom: 30px;
   background: #FAFAFA;
   border-radius: 9px;
@@ -951,19 +957,19 @@ a {
 .to-right {
   -webkit-animation-name: right;
           animation-name: right;
-  animation-direction: reverse;
   -webkit-animation-duration: 3s;
           animation-duration: 3s;
+  animation-direction: reverse;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
 }
 
-.to-left {
+.from-left {
   -webkit-animation-name: left;
           animation-name: left;
-  animation-direction: reverse;
   -webkit-animation-duration: 3s;
           animation-duration: 3s;
+  animation-direction: reverse;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
 }
@@ -973,7 +979,7 @@ a {
     left: 0;
   }
   to {
-    left: 100%;
+    left: -100%;
   }
 }
 
@@ -982,11 +988,11 @@ a {
     left: 0;
   }
   to {
-    left: 100%;
+    left: -100%;
   }
 }
 
-@-webkit-keyframes right {
+@-webkit-keyframes rigth {
   from {
     left: 100%;
   }
@@ -995,7 +1001,7 @@ a {
   }
 }
 
-@keyframes right {
+@keyframes rigth {
   from {
     left: 100%;
   }

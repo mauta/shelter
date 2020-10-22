@@ -77,7 +77,7 @@ window.addEventListener('resize', () => {
 
 
 
-const sliderList = document.querySelector('.slider__list')
+
 
 fetch('./js/pets.json').then(res => res.json()).then(json => {
   const petCardTemplate = document.querySelector('#petCard').content
@@ -99,10 +99,10 @@ fetch('./js/pets.json').then(res => res.json()).then(json => {
   const popup = document.querySelector('.popup')
   const popupCloseBtn = popup.querySelector('.popup__close-btn')
   const petsSection = document.querySelector('.pets')
+  const petsSlider = document.querySelector('.pets__slider')
+  const sliderList = document.querySelector('.slider__list')
 
-
-
-  sliderList.addEventListener('click', (evt) => {
+  petsSlider.addEventListener('click', (evt) => {
     evt.preventDefault()
 
     if (evt.target.parentNode.classList.contains('slider__item')) {
@@ -144,32 +144,42 @@ fetch('./js/pets.json').then(res => res.json()).then(json => {
     while (arrpets.length < 3) {
       let randomPet = Math.floor(Math.random() * Math.floor(json.length))
       if (!arrpets.includes(randomPet)) {
-        console.log('randomPet ' + randomPet)
         arrpets.push(randomPet)
       }
-         console.log('arrpets ' + arrpets)
     }
+    console.log('arrpets ' + arrpets)
   }
 
   generatePets()
 
-  petAdd = (i,itemNumber) => {
-    sliderList.prepend(petCardTemplate.cloneNode(true))
-    const sliderItem = sliderList.querySelectorAll('.slider__item')
-    const sliderImg = sliderList.querySelectorAll('.slider__img')
-    const sliderName = sliderList.querySelectorAll('.slider__name')
-    sliderItem[0].setAttribute('id', `${json[itemNumber].id}`)
-    sliderName[0].textContent = `${json[itemNumber].name}`
-    sliderImg[0].setAttribute('src', `${json[itemNumber].img}`)
+  petListAdd = (direction) => {
+    let sliderList = document.createElement('ul')
+    sliderList.classList.add('slider__list')
+    if(direction ==='next'){
+      petsSlider.append(sliderList)
+    } else {
+      petsSlider.prepend(sliderList)
+    }
+    
+    for (let i = 0; i < 3; i++) {
+      const itemNumber = arrpets[i]
+      sliderList.append(petCardTemplate.cloneNode(true))
+      const sliderItem = sliderList.querySelectorAll('.slider__item')
+      const sliderImg = sliderList.querySelectorAll('.slider__img')
+      const sliderName = sliderList.querySelectorAll('.slider__name')
+      sliderItem[sliderItem.length - 1].setAttribute('id', `${json[itemNumber].id}`)
+      sliderName[sliderItem.length - 1].textContent = `${json[itemNumber].name}`
+      sliderImg[sliderItem.length - 1].setAttribute('src', `${json[itemNumber].img}`)
+    }
+
   }
 
+  petListAdd('next')
+
   draw = () => {
-    for (let i = 0; i < 3; i++) {
-      petAdd(i,arrpets[i])
-    }
     const sliderItems = document.querySelectorAll('.slider__item')
     if (pageSize === 'decktop') {
- 
+
     }
     if (pageSize === 'tablet') {
       let a = sliderItems[2]
@@ -184,11 +194,7 @@ fetch('./js/pets.json').then(res => res.json()).then(json => {
   }
   draw()
 
-  delPets = () => {
-    while (sliderList.firstChild) {
-      sliderList.removeChild(sliderList.firstChild);
-    }
-  }
+
 
   window.addEventListener('resize', () => {
     let oldPageSize = pageSize
@@ -221,43 +227,49 @@ fetch('./js/pets.json').then(res => res.json()).then(json => {
 
   const sliderBtnPrevious = document.querySelector('.pets__slide-btn--previous')
   const sliderBtnNext = document.querySelector('.pets__slide-btn--next')
-  let sliderItems = sliderList.querySelectorAll('.slider__item')
-  let currentItem = 0
 
 
 
   sliderBtnPrevious.addEventListener('click', function () {
-    sliderItems = sliderList.querySelectorAll('.slider__item')
-    if (currentItem > 0) {
-      currentItem--
-      sliderItems[currentItem].classList.remove('slider__item--hide')
-      sliderItems[currentItem + 3].classList.add('slider__item--hide')
-    } else {
-
-      petListAddFirst()
-      sliderItems[currentItem + 2].classList.add('slider__item--hide')
-    }
+    const direction = 'previous'
+    arrpets = []
+    generatePets()
+    petListAdd(direction)
+    dellist(direction)
   })
 
   sliderBtnNext.addEventListener('click', function () {
-    sliderItems = sliderList.querySelectorAll('.slider__item')
-    if (currentItem < sliderItems.length - 4) {
-      sliderItems[currentItem].classList.add('slider__item--hide')
-      sliderItems[currentItem + 3].classList.remove('slider__item--hide')
-      currentItem++
-    } else {
-      sliderItems[currentItem].classList.add('slider__item--hide')
-      petListAddLast()
-      currentItem++
+    const direction = 'next'
+    arrpets = []
+    generatePets()
+    petListAdd(direction)
+    const sliderlists = document.querySelectorAll('.slider__list')
+    console.log(sliderlists)
+    sliderlists[0].style.backgroundColor = 'red'
+    sliderlists[1].style.backgroundColor = 'green'
+    sliderlists[0].classList.add('to-left')
+    sliderlists[1].classList.add('from-right')
+    
+    // setTimeout(dellist(direction),3500)
+    // // let animated = document.querySelector('.from-right')
+    // // animated.addEventListener('animationend', ()=>{
+    // //   console.log('Animation ended');
+    // //   dellist(direction)
+    //  document.querySelector('.slider__list').classList.remove('from-right')
+    // // })
+    
+ })
+
+
+  dellist = (direction) => {
+    const sliderlists = document.querySelectorAll('.slider__list')
+    if (direction === 'next') {
+      sliderlists[0].remove()
     }
-  })
+    if (direction === 'previous') {
+      sliderlists[1].remove()
+    }
+  }
+
 
 })
-
-// window.addEventListener('resize', () => {
-//   let oldPageSize = pageSize
-//   initPageSize()
-//   if (oldPageSize !== pageSize) {
-
-//   }
-// })
