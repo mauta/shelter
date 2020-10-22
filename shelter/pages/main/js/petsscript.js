@@ -1,4 +1,80 @@
+const burgerBtn = document.querySelector('.header__burger')
+const burgerMenu = document.querySelector('.burger')
+const burgerLogo = document.querySelector('.burger__logo')
+const headerLogo = document.querySelector('.header__logo')
 const darkScreen = document.querySelector('.dark-screen')
+const burgerLinks = document.querySelectorAll('.burger__link')
+let isBurgerOpen = false;
+
+const openBurger = () => {
+  darkScreen.style.display = 'block'
+  burgerBtn.classList.remove('header__burger--close')
+  burgerBtn.classList.add('header__burger--open')
+  burgerMenu.classList.add('burger--active')
+  burgerMenu.classList.add('burger__animation-in')
+  burgerMenu.classList.remove('burger__animation-out')
+  burgerLogo.classList.add('burger__logo--open')
+  headerLogo.classList.add('header__logo--hide')
+  isBurgerOpen = true
+}
+
+const closeBurger = () => {
+
+  darkScreen.style.display = 'none'
+  burgerBtn.classList.remove("header__burger--open")
+  burgerBtn.classList.add("header__burger--close")
+
+  burgerMenu.classList.remove('burger__animation-in')
+  burgerMenu.classList.add('burger__animation-out')
+  burgerLogo.classList.remove('burger__logo--open')
+  headerLogo.classList.remove('header__logo--hide')
+  const animation = document.querySelector('.burger__animation-out')
+  isBurgerOpen = false
+}
+
+const removeClassActive = () => {
+  burgerMenu.classList.remove('burger--active')
+}
+
+burgerBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
+
+  if (isBurgerOpen) {
+    closeBurger()
+    setTimeout(removeClassActive, 2000)
+  } else {
+    openBurger()
+  }
+})
+
+document.querySelector('.dark-screen').addEventListener('click', closeBurger)
+
+window.addEventListener('keydown', (evt) => {
+  if (evt.key === 'Escape') {
+    evt.preventDefault
+    if (isBurgerOpen) {
+      closeBurger()
+      setTimeout(removeClassActive, 2000)
+    }
+  }
+})
+
+burgerLinks.forEach(item => {
+  item.addEventListener('click', (evt) => {
+    if (isBurgerOpen) {
+      closeBurger()
+      setTimeout(removeClassActive, 2000)
+    }
+  })
+})
+
+window.addEventListener('resize', () => {
+  if (isBurgerOpen) {
+    closeBurger()
+    setTimeout(removeClassActive, 2000)
+  }
+})
+
 
 fetch('./js/pets.json').then(res => res.json()).then(json => {
   const petCardTemplate = document.querySelector('#petCard').content
@@ -11,7 +87,7 @@ fetch('./js/pets.json').then(res => res.json()).then(json => {
   let lastPage
 
   initPageSize = () => {
-    if (window.innerWidth < 786) {
+    if (window.innerWidth < 768) {
       pageSize = 'mobile'
     }
     if (window.innerWidth < 1221 && window.innerWidth > 785) {

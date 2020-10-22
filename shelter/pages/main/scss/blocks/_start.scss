@@ -5,7 +5,11 @@
 }
 
 .start__hidden{
-  overflow: hidden;
+  overflow-x: hidden;
+}
+
+.header__wrap{
+  z-index: 2;
 }
 
 .header {
@@ -15,7 +19,7 @@
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
-  overflow: hidden;
+  overflow-x: hidden;
 
   @media (max-width: 1024px) {
     padding-top: 4.2%;
@@ -53,6 +57,10 @@
   }
 }
 
+.header-pets{
+  z-index: 5;
+}
+
 .header__burger{
   position: absolute;
   width: 30px;
@@ -66,6 +74,46 @@
   cursor: pointer;
   background-color: transparent;
   z-index: 3;
+
+  &::after{
+    position: absolute;
+    display: block;
+    content: '';
+    background-color: $base-pink;
+    width: 30px;
+    height: 2px;
+    bottom: 4px;
+  }
+  
+  &::before{
+    position: absolute;
+    display: block;
+    content: '';
+    background-color: $base-pink;
+    width: 30px;
+    height: 2px;
+    top: 4px;
+  }
+
+  &--pets::after{
+    position: absolute;
+    display: block;
+    content: '';
+    background-color:  black;
+    width: 30px;
+    height: 2px;
+    bottom: 4px;
+  }
+  
+  &--pets::before{
+    position: absolute;
+    display: block;
+    content: '';
+    background-color: black;
+    width: 30px;
+    height: 2px;
+    top: 4px;
+  }
 }
 
 .header__burger-line{
@@ -74,27 +122,21 @@
   width: 30px;
   height: 2px;
   background-color: $base-pink;
+
+  &--pets{
+    background-color: black;
+  }
+
+  &--pets::after{
+    background-color: black;
+  }
+
+  &--pets::before{
+    background-color: black;
+  }
 }
 
-.header__burger::after{
-  position: absolute;
-  display: block;
-  content: '';
-  background-color: $base-pink;
-  width: 30px;
-  height: 2px;
-  bottom: 4px;
-}
 
-.header__burger::before{
-  position: absolute;
-  display: block;
-  content: '';
-  background-color: $base-pink;
-  width: 30px;
-  height: 2px;
-  top: 4px;
-}
 
 
 .header__burger--open{

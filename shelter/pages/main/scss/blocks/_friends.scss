@@ -31,8 +31,9 @@
     margin-bottom: 5.2%;
   }
 
-  @media (max-width: 740px){
+  @media (max-width: 767px){
     width: 85%;
+    max-width: 550px;
     margin-bottom: 13.3%;
   }
 }
