@@ -5,7 +5,7 @@
   width: 320px;
   background: #292929;
   padding-top: 250px;
-  min-height: 100%;
+  height: calc(var(--vh, 1vh) * 100);
   z-index: 2;
   display: none;
 
@@ -37,13 +37,42 @@ display: block;
 .burger__link {
   @include font-second;
   @include link;
-  color: $basic-light;
+  color: $btn-light;
   font-size: 32px;
   line-height: 51px;
   margin: 0;
  
+
+
+  &:hover {
+    cursor: pointer;
+    color: white;
+  }
+
+  &:active,
+  &:focus {
+    border-bottom: 3px solid $base-pink;
+    outline: none;
+    color: white;
+  }
+
   &--pets{
     color: $basic-dark;
+
+    &:hover {
+    
+      color: $basic-too-dark;
+    }
+    
+    &:active,
+    &:focus {
+         color: $basic-too-dark;
+    }
+  }
+
+  &--active{
+    border-bottom: 3px solid $base-pink;
+    outline: none;
   }
 
   &--disabled {

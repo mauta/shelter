@@ -182,6 +182,7 @@
   justify-content: space-between;
   position: relative;
   min-width: 100%;
+  background-color: $basic-light;
 
   @media (max-width: 1100px) {
     justify-content: space-around;
@@ -219,49 +220,42 @@
   }
 }
 
-.to-left {
-  animation-name: left;
-  animation-duration: 3s;
-  animation-fill-mode: forwards;
-}
 
 .from-right {
   animation-name: right;
-  animation-duration: 3s;
-  animation-fill-mode: forwards;
-}
-
-.to-right {
-  animation-name: right;
-  animation-duration: 3s;
-  animation-direction: reverse;
+  animation-duration: 2s;
   animation-fill-mode: forwards;
 }
 
 .from-left {
   animation-name: left;
-  animation-duration: 3s;
-  animation-direction: reverse;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+.right{
+  animation-name: right;
+  animation-duration: 0.5s;
   animation-fill-mode: forwards;
 }
 
 @keyframes left {
   from {
-    left: 0;
+    right: 100%;
   }
 
   to {
-    left: -100%
+    right: 0;
   }
 }
 
-@keyframes rigth {
+@keyframes right {
   from {
-    left: 100%;
+    right: 0;
   }
 
   to {
-    left: 0;
+    right: 100%;
   }
 }
 

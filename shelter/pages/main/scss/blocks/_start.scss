@@ -183,14 +183,10 @@
   @include link;
   font-size: 15px;
   line-height: 24px;
-  color: $basic-light;
+  color:$btn-light;
   padding-bottom: 4px;
 
-  &-pets {
-    color: $basic-dark;
-  }
-
-  &--disabled{
+   &--disabled{
     pointer-events: none;
     cursor: default; 
   }
@@ -198,6 +194,33 @@
   &--active{
     border-bottom: 3px solid $base-pink;
     outline: none;
+  }
+
+  &:hover {
+    cursor: pointer;
+    color: white;
+  }
+
+  
+  &:active,
+  &:focus {
+    border-bottom: 3px solid $base-pink;
+    outline: none;
+    color: white;
+  }
+
+  &--pets{
+    color: $basic-dark;
+
+    &:hover {
+    
+      color: black;
+    }
+    
+    &:active,
+    &:focus {
+         color: black;
+    }
   }
 }
 

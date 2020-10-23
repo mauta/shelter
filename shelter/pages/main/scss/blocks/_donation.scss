@@ -95,6 +95,10 @@
   letter-spacing: 0.06em;
   margin-bottom: 20px;
 
+  &:hover{
+    background-color: $light-pink;
+  }
+
   @media (max-width: 740px) {
     height: 43px;
     width: 281px;

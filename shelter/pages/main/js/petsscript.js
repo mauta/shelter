@@ -4,18 +4,31 @@ const burgerLogo = document.querySelector('.burger__logo')
 const headerLogo = document.querySelector('.header__logo')
 const darkScreen = document.querySelector('.dark-screen')
 const burgerLinks = document.querySelectorAll('.burger__link')
-let isBurgerOpen = false;
+let isBurgerOpen = false
+let isAnimathionStop = true
+let vh = window.innerHeight * 0.01
+
+document.documentElement.style.setProperty('--vh', `${vh}px`);
+
 
 const openBurger = () => {
-  darkScreen.style.display = 'block'
-  burgerBtn.classList.remove('header__burger--close')
-  burgerBtn.classList.add('header__burger--open')
-  burgerMenu.classList.add('burger--active')
-  burgerMenu.classList.add('burger__animation-in')
-  burgerMenu.classList.remove('burger__animation-out')
-  burgerLogo.classList.add('burger__logo--open')
-  headerLogo.classList.add('header__logo--hide')
-  isBurgerOpen = true
+  if (isAnimathionStop === true) {
+    isAnimathionStop = false
+    darkScreen.style.display = 'block'
+    burgerBtn.classList.remove('header__burger--close')
+    burgerBtn.classList.add('header__burger--open')
+    burgerMenu.classList.add('burger--active')
+    burgerMenu.classList.add('burger__animation-in')
+    burgerMenu.classList.remove('burger__animation-out')
+    burgerLogo.classList.add('burger__logo--open')
+    headerLogo.classList.add('header__logo--hide')
+    document.body.style.overflowY = 'hidden'
+    burgerLogo.addEventListener('animationend', () => {
+      isAnimathionStop = true
+      isBurgerOpen = true
+    })
+  }
+
 }
 
 const closeBurger = () => {
@@ -28,6 +41,7 @@ const closeBurger = () => {
   burgerMenu.classList.add('burger__animation-out')
   burgerLogo.classList.remove('burger__logo--open')
   headerLogo.classList.remove('header__logo--hide')
+  document.body.style.overflowY = 'visible'
   const animation = document.querySelector('.burger__animation-out')
   isBurgerOpen = false
 }
@@ -38,10 +52,8 @@ const removeClassActive = () => {
 
 burgerBtn.addEventListener('click', (e) => {
   e.stopPropagation();
-
   if (isBurgerOpen) {
     closeBurger()
-    setTimeout(removeClassActive, 2000)
   } else {
     openBurger()
   }
@@ -86,7 +98,7 @@ fetch('./js/pets.json').then(res => res.json()).then(json => {
   let pageNumber = 1
   let lastPage
 
-  initPageSize = () => {
+  const initPageSize = () => {
     if (window.innerWidth < 768) {
       pageSize = 'mobile'
     }
@@ -100,7 +112,7 @@ fetch('./js/pets.json').then(res => res.json()).then(json => {
 
   initPageSize()
 
-  getLastPageNumber = () => {
+  const getLastPageNumber = () => {
     if (pageSize === 'decktop') {
       lastPage = PETS_COUNT / 8
     }
@@ -114,7 +126,7 @@ fetch('./js/pets.json').then(res => res.json()).then(json => {
 
   getLastPageNumber()
 
-  generatePets = () => {
+  const generatePets = () => {
     while (arrpets.length < PETS_COUNT) {
       let randomPet = Math.floor(Math.random() * Math.floor(json.length))
       // if (!arrpets.includes(randomPet)) {
@@ -127,7 +139,7 @@ fetch('./js/pets.json').then(res => res.json()).then(json => {
 
   generatePets()
 
-  petAdd = (itemNumber) => {
+  const petAdd = (itemNumber) => {
     freindsList.append(petCardTemplate.cloneNode(true))
     const sliderItem = freindsList.querySelectorAll('.slider__item')
     const sliderImg = freindsList.querySelectorAll('.slider__img')
@@ -139,7 +151,7 @@ fetch('./js/pets.json').then(res => res.json()).then(json => {
   }
 
 
-  draw = (pageNumber) => {
+  const draw = (pageNumber) => {
     if (pageSize === 'decktop') {
       for (let i = (pageNumber - 1) * 8; i < pageNumber * 8; i++) {
         petAdd(arrpets[i])
@@ -174,12 +186,14 @@ fetch('./js/pets.json').then(res => res.json()).then(json => {
         popup.querySelector('.popup__inoculations').textContent = pet.inoculations
         popup.querySelector('.popup__diseases').textContent = pet.diseases
         popup.querySelector('.popup__parasites').textContent = pet.parasites
+        document.body.style.overflowY = 'hidden'
       }
 
       popupClose = (evt) => {
         evt.preventDefault()
         darkScreen.style.display = 'none'
-        popup.classList.remove('popup--active')        
+        popup.classList.remove('popup--active')
+        document.body.style.overflowY = 'visible'        
       }
 
       popupCloseBtn.addEventListener('click', popupClose)
@@ -199,7 +213,7 @@ fetch('./js/pets.json').then(res => res.json()).then(json => {
 
   draw(pageNumber)
 
-  delPets = () => {
+  const delPets = () => {
     while (freindsList.firstChild) {
       freindsList.removeChild(freindsList.firstChild);
     }

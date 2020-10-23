@@ -5,58 +5,115 @@
   width: 900px;
   display: flex;
   left: calc(50% - 450px);
-  top:calc(50% - 250px);
+  top: calc(50% - 250px);
   box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
   z-index: 2;
   display: none;
+
+  @media (max-width: 1024px) {
+    width: 630px;
+    left: calc(50% - 315px);
+    top: calc(50% - 175px);
+  }
+
+  @media (max-width: 740px) {
+    width: 240px;
+    left: calc(50% - 120px);
+    top: calc(50% - 175px);
+  }
 }
 
-.popup--active{
+.popup--active {
   display: flex;
 }
 
 .popup__content {
   width: 351px;
+  padding-top: 51px;
 
+  @media (max-width: 1024px) {
+    width: 261px;
+    padding-top: 11px;
+  }
+
+  @media (max-width: 740px) {
+    text-align: center;
+    width: 220px;
+    margin: 0 auto;
+  }
 }
+
 
 .popup__img {
   margin-right: 30px;
   border-radius: 9px 0px 0px 9px;
-  -webkit-border-radius:9px 0px 0px 9px;
-  -moz-border-radius:9px 0px 0px 9px;
-  -ms-border-radius:9px 0px 0px 9px;
-  -o-border-radius:9px 0px 0px 9px;
+  -webkit-border-radius: 9px 0px 0px 9px;
+  -moz-border-radius: 9px 0px 0px 9px;
+  -ms-border-radius: 9px 0px 0px 9px;
+  -o-border-radius: 9px 0px 0px 9px;
+
+  @media (max-width: 1024px) {
+    width: 350px;
+    max-height: 350px;
+    margin-right: 10px;
+  }
+
+  @media (max-width: 740px) {
+    display: none;
+  }
 }
 
-.popup__content{
-  padding-top: 51px;
-}
 
-.popup__name{
+
+.popup__name {
   @include title;
   margin-bottom: 9px;
 }
 
-.popup__type-breed{
+.popup__type-breed {
   @include subtitle;
   text-align: left;
   margin-bottom: 40px;
+
+  @media (max-width: 1024px) {
+    margin-bottom: 21px;
+  }
+
+  @media (max-width: 740px) {
+    text-align: center;
+  }
 }
 
-.popup__text{
+.popup__text {
   font-size: 15px;
   line-height: 17px;
   letter-spacing: 0.06em;
   margin-bottom: 40px;
+
+  @media (max-width: 1024px) {
+    font-size: 13px;
+    line-height: 14px;
+    margin-bottom: 20px;
+    text-align: justify;
+  }
+
+  @media (max-width: 740px){
+   
+    margin-bottom: 23px;
+  }
 }
 
-.popup__list{
+.popup__list {
   @include list;
 
+  @media (max-width: 740px){
+    text-align: left;
+    margin-bottom: 11px;
+  }
+
 }
 
-.popup__item{
+.popup__item {
   font-size: 15px;
   line-height: 17px;
   letter-spacing: 0.06em;
@@ -64,15 +121,18 @@
   margin-bottom: 11px;
   padding-left: 14px;
   position: relative;
+  @media (max-width: 1024px) {
+    margin-bottom: 6px;
+  }
 }
 
-.popup__item::before{
-  position:absolute;
+.popup__item::before {
+  position: absolute;
   display: block;
   content: '';
   width: 4px;
   height: 4px;
-  top:7px;
+  top: 7px;
   left: 0px;
   border-radius: 50%;
   background-color: $base-pink;
@@ -86,29 +146,34 @@
 .popup__age,
 .popup__inoculations,
 .popup__diseases,
-.popup__parasites{
+.popup__parasites {
   font-weight: normal;
 }
 
-.popup__close-btn{
+.popup__close-btn {
   @include color-button;
   position: absolute;
   width: 52px;
   height: 52px;
-  top:-52px;
-  right:-42px;
+  top: -52px;
+  right: -42px;
   border: 2px solid $base-pink;
   background-color: transparent;
   z-index: 0;
+
+  @media (max-width: 740px){
+   
+    right: -30px;
+  }
 }
 
-.popup__close-btn::before{
-  position:absolute;
+.popup__close-btn::before {
+  position: absolute;
   display: block;
   content: '';
   width: 16px;
   height: 2px;
-  top:23px;
+  top: 23px;
   left: 16px;
   transform: rotate(45deg);
   background-color: $basic-too-dark;
@@ -123,13 +188,13 @@
   -o-border-radius: 2px;
 }
 
-.popup__close-btn::after{
-  position:absolute;
+.popup__close-btn::after {
+  position: absolute;
   display: block;
   content: '';
   width: 16px;
   height: 2px;
-  top:23px;
+  top: 23px;
   left: 16px;
   transform: rotate(-45deg);
   background-color: $basic-too-dark;
