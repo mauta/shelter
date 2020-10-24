@@ -24,8 +24,8 @@
         <ul class="nav">
           <li class="nav__item"><a href="#about" class="nav__link nav__link--active">About the shelter</a></li>
           <li class="nav__item"><a href="pets.html" class="nav__link">Our pets </a></li>
-          <li class="nav__item"><a href="#" class="nav__link nav__link--disabled">Help the shelter</a></li>
-          <li class="nav__item"><a href="#" class="nav__link nav__link--disabled">Contacts </a></li>
+          <li class="nav__item"><a href="#help" class="nav__link">Help the shelter</a></li>
+          <li class="nav__item"><a href="#contacts" class="nav__link">Contacts </a></li>
         </ul>
 
         <button class="header__burger header__burger--hidden header__burger--close" aria-label="меню открыть-закрыть">
@@ -55,8 +55,8 @@
         <ul class="burger__nav">
           <li class="burger__item"><a href="#about" class="burger__link burger__link--active">About the shelter</a></li>
           <li class="burger__item"><a href="pets.html" class="burger__link">Our pets </a></li>
-          <li class="burger__item"><a href="#" class="burger__link burger__link--disabled">Help the shelter</a></li>
-          <li class="burger__item"><a href="#" class="burger__link burger__link--disabled">Contacts </a></li>
+          <li class="burger__item"><a href="#help" class="burger__link">Help the shelter</a></li>
+          <li class="burger__item"><a href="#contacts" class="burger__link">Contacts </a></li>
         </ul>
 
       </div>
@@ -66,8 +66,6 @@
   </section>
   <main>
     <section class="about">
-
-
       <img class="about__img" src="../../assets/images/about-pets.png" alt="" width="300" height="408">
       <div class="about__content">
         <h3 class="about__title">About the shelter<br> “Cozy House” </h3>
@@ -82,7 +80,6 @@
     </section>
 
     <section class="pets">
-      <a name="ourpets"></a>
       <div class="screen__wrap">
         <div class="pets__wrap">
           <h3 class="pets__title">Our friends who<br>
@@ -94,7 +91,6 @@
             </svg>
           </button>
           <div class="pets__slider slider">
-
           </div>
           <button class="pets__slide-btn pets__slide-btn--next" aria-label="следующий">
             <svg class="pets__arrow" width="14" height="6" viewBox="0 0 14 6" fill="none" transform="rotate(180)"
@@ -105,28 +101,10 @@
           <a class="pets__button" href="pets.html">Get to know the rest</a>
         </div>
       </div>
-      <!-- <section class="popup">
-        <img class="popup__img" src="" alt="порода" width="500" height="500">
-        <div class="popup__content">
-          <h3 class="popup__name"></h3>
-          <p class="popup__type-breed"></p>
-          <p class="popup__text"></p>
-          <ul class="popup__list">
-            <li class="popup__item">Age: <span class="popup__age"></span></li>
-            <li class="popup__item">Inoculations: <span class="popup__inoculations"></span></li>
-            <li class="popup__item">Diseases: <span class="popup__diseases"></span> </li>
-            <li class="popup__item">Parasites: <span class="popup__parasites"></span> </li>
-  
-          </ul>
-  
-          <button class="popup__close-btn" type="button"><span class="visually-hidden">close</span></button>
-        </div>
-      </section> -->
-
-
     </section>
 
     <section class="help">
+      <a name="help"></a>
       <div class="screen__wrap">
         <a name="help"></a>
         <h3 class="help__title">How you can help<br>
@@ -213,32 +191,33 @@
 
   </footer>
 
- <template id="petCard">
-  <li class="slider__item">
-    <img class="slider__img" src="../../assets/images/pets-katrine.jpg" alt="" width="270" height="270">
-    <p class="slider__name">Katrine</p>
-    <a class="slider__btn" href="">Learn more</a>
-  </li>
- </template>
- <section class="popup">
-  <img class="popup__img" src="" alt="порода" width="500" height="500">
-  <div class="popup__content">
-    <h3 class="popup__name"></h3>
-    <p class="popup__type-breed"></p>
-    <p class="popup__text"></p>
-    <ul class="popup__list">
-      <li class="popup__item">Age: <span class="popup__age"></span></li>
-      <li class="popup__item">Inoculations: <span class="popup__inoculations"></span></li>
-      <li class="popup__item">Diseases: <span class="popup__diseases"></span> </li>
-      <li class="popup__item">Parasites: <span class="popup__parasites"></span> </li>
+  <template id="petCard">
+    <li class="slider__item">
+      <img class="slider__img" src="../../assets/images/pets-katrine.jpg" alt="" width="270" height="270">
+      <p class="slider__name">Katrine</p>
+      <a class="slider__btn" href="">Learn more</a>
+    </li>
+  </template>
+  <section class="popup">
+    <img class="popup__img" src="" alt="порода" width="500" height="500">
+    <div class="popup__content">
+      <h3 class="popup__name"></h3>
+      <p class="popup__type-breed"></p>
+      <p class="popup__text"></p>
+      <ul class="popup__list">
+        <li class="popup__item">Age: <span class="popup__age"></span></li>
+        <li class="popup__item">Inoculations: <span class="popup__inoculations"></span></li>
+        <li class="popup__item">Diseases: <span class="popup__diseases"></span> </li>
+        <li class="popup__item">Parasites: <span class="popup__parasites"></span> </li>
 
-    </ul>
+      </ul>
 
-    <button class="popup__close-btn" type="button"><span class="visually-hidden">close</span></button>
-  </div>
-</section>
+      <button class="popup__close-btn" type="button"><span class="visually-hidden">close</span></button>
+    </div>
+  </section>
 
   <div class="dark-screen"></div>
+  <!-- <script src="js/generate_json.js"></script> -->
   <script src="js/pets.json"></script>
   <script src="js/script.js"></script>
 </body>

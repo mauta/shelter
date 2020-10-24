@@ -39,6 +39,7 @@ const closeBurger = () => {
     burgerLogo.classList.remove('burger__logo--open')
     headerLogo.classList.remove('header__logo--hide')
     document.body.style.overflowY = 'visible'
+    setTimeout(removeClassActive, 1500)
     isBurgerOpen = false 
 }
 
@@ -49,7 +50,7 @@ const removeClassActive = () => {
 burgerBtn.addEventListener('click', (e) => {
   e.stopPropagation();
   if (isBurgerOpen) {
-    closeBurger()
+    closeBurger()    
   } else {
     openBurger()
   }
@@ -61,30 +62,25 @@ window.addEventListener('keydown', (evt) => {
   if (evt.key === 'Escape') {
     evt.preventDefault
     if (isBurgerOpen) {
-      closeBurger()
-      setTimeout(removeClassActive, 2000)
+      closeBurger()      
     }
   }
 })
 
 burgerLinks.forEach(item => {
   item.addEventListener('click', (evt) => {
+    evt.preventDefault
     if (isBurgerOpen) {
-      closeBurger()
-      setTimeout(removeClassActive, 2000)
+      closeBurger()  
     }
   })
 })
 
 window.addEventListener('resize', () => {
   if (isBurgerOpen) {
-    closeBurger()
-    setTimeout(removeClassActive, 2000)
+    closeBurger() 
   }
 })
-
-
-
 
 
 fetch('./js/pets.json').then(res => res.json()).then(json => {

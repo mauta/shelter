@@ -126,8 +126,8 @@ display: block;
 }
 
 .burger__animation-out {
-  animation: burger__side-out 2s forwards;
-  -webkit-animation: burger__side-out 2s forwards;
+  animation: burger__side-out 2s;
+  -webkit-animation: burger__side-out 2s ;
 }
 
 @keyframes burger__side-out {

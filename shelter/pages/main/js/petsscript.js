@@ -15,6 +15,7 @@ const openBurger = () => {
   if (isAnimathionStop === true) {
     isAnimathionStop = false
     darkScreen.style.display = 'block'
+    headerWrap.style.position ='static'
     burgerBtn.classList.remove('header__burger--close')
     burgerBtn.classList.add('header__burger--open')
     burgerMenu.classList.add('burger--active')
@@ -32,17 +33,16 @@ const openBurger = () => {
 }
 
 const closeBurger = () => {
-
   darkScreen.style.display = 'none'
   burgerBtn.classList.remove("header__burger--open")
   burgerBtn.classList.add("header__burger--close")
-
   burgerMenu.classList.remove('burger__animation-in')
   burgerMenu.classList.add('burger__animation-out')
   burgerLogo.classList.remove('burger__logo--open')
   headerLogo.classList.remove('header__logo--hide')
   document.body.style.overflowY = 'visible'
-  const animation = document.querySelector('.burger__animation-out')
+  headerWrap.style.position ='sticky'
+  setTimeout(removeClassActive, 2000)
   isBurgerOpen = false
 }
 
@@ -73,10 +73,10 @@ window.addEventListener('keydown', (evt) => {
 
 burgerLinks.forEach(item => {
   item.addEventListener('click', (evt) => {
+    evt.preventDefault
     if (isBurgerOpen) {
       closeBurger()
-      setTimeout(removeClassActive, 2000)
-    }
+     }
   })
 })
 
@@ -90,8 +90,7 @@ window.addEventListener('resize', () => {
 
 fetch('./js/pets.json').then(res => res.json()).then(json => {
   const petCardTemplate = document.querySelector('#petCard').content
-  const freindsList = document.querySelector('.friends__list')
-  
+  const freindsList = document.querySelector('.friends__list')  
   const arrpets = []
   const PETS_COUNT = 48
   let pageSize
@@ -129,11 +128,9 @@ fetch('./js/pets.json').then(res => res.json()).then(json => {
   const generatePets = () => {
     while (arrpets.length < PETS_COUNT) {
       let randomPet = Math.floor(Math.random() * Math.floor(json.length))
-      // if (!arrpets.includes(randomPet)) {
-      //   arrpets.push(randomPet)
-      // }
-      arrpets.push(randomPet)
-
+      if (!arrpets.includes(randomPet)) {
+        arrpets.push(randomPet)
+      }
     }
   }
 
@@ -152,6 +149,10 @@ fetch('./js/pets.json').then(res => res.json()).then(json => {
 
 
   const draw = (pageNumber) => {
+    if (pageNumber > lastPage) {
+      pageNumber = lastPage
+      pageSpan.textContent = pageNumber
+    }
     if (pageSize === 'decktop') {
       for (let i = (pageNumber - 1) * 8; i < pageNumber * 8; i++) {
         petAdd(arrpets[i])
@@ -234,6 +235,7 @@ fetch('./js/pets.json').then(res => res.json()).then(json => {
     let oldPageSize = pageSize
     initPageSize()
     if (oldPageSize !== pageSize) {
+      initPageSize()
       delPets()
       draw(pageNumber)
     }
