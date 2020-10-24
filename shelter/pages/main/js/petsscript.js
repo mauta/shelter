@@ -207,6 +207,17 @@ fetch('./js/pets.json').then(res => res.json()).then(json => {
       document.querySelector('.dark-screen').addEventListener('click',popupClose)
 
     })
+
+    popup.addEventListener('mouseleave',()=>{
+      console.log('ушел на базу')
+      popupCloseBtn.style.backgroundColor ='#FDDCC4'
+    })
+
+    popup.addEventListener('mouseenter',(e)=>{
+      console.log(e.target)
+      popupCloseBtn.style.backgroundColor =null
+
+    })
  
 
   }

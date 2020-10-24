@@ -1,25 +1,25 @@
 .popup {
   background: #FAFAFA;
   border-radius: 9px;
-  position: absolute;
+  position: fixed;
   width: 900px;
   display: flex;
-  left: calc(50% - 450px);
-  top: calc(50% - 250px);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
   box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
   z-index: 2;
   display: none;
-
-  @media (max-width: 1024px) {
-    width: 630px;
-    left: calc(50% - 315px);
-    top: calc(50% - 175px);
+  -webkit-transform: translate(-50%,-50%);
+  -moz-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  -o-transform: translate(-50%,-50%);
+  @media(max-width: 1024px){
+    width: 630px; 
   }
 
   @media (max-width: 740px) {
     width: 240px;
-    left: calc(50% - 120px);
-    top: calc(50% - 175px);
   }
 }
 

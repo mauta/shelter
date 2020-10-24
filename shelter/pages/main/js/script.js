@@ -119,6 +119,7 @@ fetch('./js/pets.json').then(res => res.json()).then(json => {
       const petId = evt.target.parentNode.getAttribute('id')
       const pet = json.find(el => el.id === petId)
       popup.classList.add('popup--active')
+      console.log('znnfdg')
       popup.querySelector('.popup__img').setAttribute('src', pet.img)
       popup.querySelector('.popup__name').textContent = pet.name
       popup.querySelector('.popup__type-breed').textContent = `${pet.type} - ${pet.breed}`
@@ -146,6 +147,18 @@ fetch('./js/pets.json').then(res => res.json()).then(json => {
     popupCloseBtn.addEventListener('click', popupClose)
 
     document.querySelector('.dark-screen').addEventListener('click', popupClose)
+
+
+    popup.addEventListener('mouseleave',()=>{
+      console.log('ушел на базу')
+      popupCloseBtn.style.backgroundColor ='#FDDCC4'
+    })
+
+    popup.addEventListener('mouseenter',(e)=>{
+      console.log(e.target)
+      popupCloseBtn.style.backgroundColor =null
+
+    })
   })
 
 
@@ -202,10 +215,6 @@ fetch('./js/pets.json').then(res => res.json()).then(json => {
     const sliderItems = document.querySelectorAll('.slider__item')
     if (direction === 'previous') {
       if (pageSize === 'decktop') {
-        // let a = sliderItems[2]
-        // let b = sliderItems[1]
-        // a.style.display = 'block'
-        // b.style.display = 'block'
       }
       if (pageSize === 'tablet') {
         let a = sliderItems[2]
@@ -219,10 +228,6 @@ fetch('./js/pets.json').then(res => res.json()).then(json => {
       }
     } else {
       if (pageSize === 'decktop') {
-        // let a = sliderItems[5]
-        // let b = sliderItems[4]
-        // a.style.display = 'block'
-        // b.style.display = 'block'
       }
       if (pageSize === 'tablet') {
         let a = sliderItems[5]
@@ -273,7 +278,15 @@ fetch('./js/pets.json').then(res => res.json()).then(json => {
   const sliderBtnPrevious = document.querySelector('.pets__slide-btn--previous')
   const sliderBtnNext = document.querySelector('.pets__slide-btn--next')
 
-
+  const dellist = (direction) => {
+    const sliderlists = document.querySelectorAll('.slider__list')
+    if (direction === 'next') {
+      sliderlists[0].remove()
+    }
+    if (direction === 'previous') {
+      sliderlists[1].remove()
+    }
+  }
 
   sliderBtnPrevious.addEventListener('click', function () {
     if (isEnable === true) {
@@ -316,15 +329,7 @@ fetch('./js/pets.json').then(res => res.json()).then(json => {
   })
 
 
-  const dellist = (direction) => {
-    const sliderlists = document.querySelectorAll('.slider__list')
-    if (direction === 'next') {
-      sliderlists[0].remove()
-    }
-    if (direction === 'previous') {
-      sliderlists[1].remove()
-    }
-  }
+
 
 
 })
