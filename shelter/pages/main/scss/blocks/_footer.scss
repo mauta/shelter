@@ -86,8 +86,6 @@
     width: 280px;
     margin: 0 auto;
   }
-
-
 }
 
 .footer__location {
@@ -116,7 +114,6 @@
   position: relative;
 
  @media (max-width: 740px) {
-    width: 300px;
     margin: 0 auto;
     margin-bottom: 32px;    
   }
@@ -126,8 +123,7 @@
     position: absolute;
     content: url(../../assets/images/icon-marker.svg);
     width: 22px;
-    height: 32px;
-    left: -1px;
+    height: 32px;   
   }
 }
 
@@ -139,8 +135,7 @@
     position: absolute;
     content: url(../../assets/images/icon-email.svg);
     width: 22px;
-    height: 32px;
-    left: 0;
+    height: 32px;  
   }
 }
 

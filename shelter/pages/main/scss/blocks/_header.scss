@@ -1,0 +1,144 @@
+.header__wrap{
+  z-index: 2;
+}
+
+.header {
+  @include big_screen;
+  position: relative;
+  padding-top: 5%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  overflow-x: hidden;
+
+  @media (max-width: 1024px) {
+    padding-top: 4.2%;
+  }
+
+  
+  @media (max-width: 740px) {
+    padding-top: 10%;
+  }
+
+  &__wrap{
+    position: sticky;
+    top: 0;
+    background-color: $white;
+  }
+
+  &-pets {
+    padding-top: 30px;
+    padding-bottom: 26px;
+  }
+}
+
+.header__logo--hide{
+  opacity: 0;
+  transition-delay: 2s;
+  transition-duration: 2s;
+}
+
+.header__burger--hidden{
+  display: none;
+
+  @media (max-width: 767px) {
+    display: block;
+  }
+}
+
+.header-pets{
+  z-index: 5;
+}
+
+.header__burger{
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 45px;
+  right: 44px;
+  padding: 0;
+  border: none;
+  box-sizing: border-box;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
+  z-index: 3;
+
+  &::after{
+    position: absolute;
+    display: block;
+    content: '';
+    background-color: $base-pink;
+    width: 30px;
+    height: 2px;
+    bottom: 4px;
+  }
+  
+  &::before{
+    position: absolute;
+    display: block;
+    content: '';
+    background-color: $base-pink;
+    width: 30px;
+    height: 2px;
+    top: 4px;
+  }
+
+  &--pets::after{
+    position: absolute;
+    display: block;
+    content: '';
+    background-color:  black;
+    width: 30px;
+    height: 2px;
+    bottom: 4px;
+  }
+  
+  &--pets::before{
+    position: absolute;
+    display: block;
+    content: '';
+    background-color: black;
+    width: 30px;
+    height: 2px;
+    top: 4px;
+  }
+}
+
+.header__burger-line{
+  position: relative;
+  display: block;
+  width: 30px;
+  height: 2px;
+  background-color: $base-pink;
+
+  &--pets{
+    background-color: black;
+  }
+
+  &--pets::after{
+    background-color: black;
+  }
+
+  &--pets::before{
+    background-color: black;
+  }
+}
+
+.header__burger--open{
+  transform: rotate(90deg) translateY(1px);
+  transition: transform 2s;
+  -webkit-transition: transform 2s;
+  -moz-transition: transform 2s;
+  -ms-transition: transform 2s;
+  -o-transition: transform 2s;
+}
+
+.header__burger--close{
+  transform: translateY(-1px);
+  transition: transform 2s;
+  -webkit-transition: transform 2s;
+  -moz-transition: transform 2s;
+  -ms-transition: transform 2s;
+  -o-transition: transform 2s;
+}
