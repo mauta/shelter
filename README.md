@@ -1,6 +1,6 @@
 ## Task 4. Shelter для [RS School](https://rs.school/)
 
-![](https://github.com/mauta/shelter/shelter.png)
+![](https://github.com/mauta/shelter/blob/shelterProduct/shelter.png)
 
 [Готовый Shelter](https://mauta.github.io/shelter/shelter/pages/main/index.html)\
 [Готовый Shelter для кроссчека](https://rolling-scopes-school.github.io/mauta-JS2020Q3/shelter/pages/main/index.html)
