@@ -15,7 +15,6 @@ const openBurger = () => {
   if (isAnimathionStop === true) {
     isAnimathionStop = false
     darkScreen.style.display = 'block'
-    headerWrap.style.position ='static'
     burgerBtn.classList.remove('header__burger--close')
     burgerBtn.classList.add('header__burger--open')
     burgerMenu.classList.add('burger--active')
@@ -41,7 +40,6 @@ const closeBurger = () => {
   burgerLogo.classList.remove('burger__logo--open')
   headerLogo.classList.remove('header__logo--hide')
   document.body.style.overflowY = 'visible'
-  headerWrap.style.position ='sticky'
   setTimeout(removeClassActive, 2000)
   isBurgerOpen = false
 }
@@ -187,6 +185,7 @@ fetch('./js/pets.json').then(res => res.json()).then(json => {
         popup.querySelector('.popup__inoculations').textContent = pet.inoculations
         popup.querySelector('.popup__diseases').textContent = pet.diseases
         popup.querySelector('.popup__parasites').textContent = pet.parasites
+        document.querySelector('.header-pets').style.zIndex = '1'
         document.body.style.overflowY = 'hidden'
       }
 
@@ -194,7 +193,8 @@ fetch('./js/pets.json').then(res => res.json()).then(json => {
         evt.preventDefault()
         darkScreen.style.display = 'none'
         popup.classList.remove('popup--active')
-        document.body.style.overflowY = 'visible'        
+        document.body.style.overflowY = 'visible'   
+        document.querySelector('.header-pets').style.zIndex = '3'     
       }
 
       popupCloseBtn.addEventListener('click', popupClose)
@@ -210,17 +210,12 @@ fetch('./js/pets.json').then(res => res.json()).then(json => {
     })
 
     popup.addEventListener('mouseleave',()=>{
-      console.log('ушел на базу')
       popupCloseBtn.style.backgroundColor ='#FDDCC4'
     })
 
     popup.addEventListener('mouseenter',(e)=>{
-      console.log(e.target)
       popupCloseBtn.style.backgroundColor =null
-
     })
- 
-
   }
 
   draw(pageNumber)

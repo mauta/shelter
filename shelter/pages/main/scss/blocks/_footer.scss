@@ -123,7 +123,8 @@
     position: absolute;
     content: url(../../assets/images/icon-marker.svg);
     width: 22px;
-    height: 32px;   
+    height: 32px;
+    left:-1px   
   }
 }
 
@@ -135,7 +136,8 @@
     position: absolute;
     content: url(../../assets/images/icon-email.svg);
     width: 22px;
-    height: 32px;  
+    height: 32px; 
+    left: 0; 
   }
 }
 

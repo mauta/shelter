@@ -55,7 +55,7 @@
   "img": "../../assets/images/doberman_6.jpg"
 }, {
   "id": "pet_6",
-  "name": "Bailey ",
+  "name": "Loki ",
   "breed": "British Shorthair",
   "description": "I am a handsome 3 1/2 year old boy. Woody does know basic commands and is a smart pup. Since he is on the stronger side, he will learn a lot from your training. Woody will be happier when he finds a new family that can spend a lot of time with him.",
   "inoculations": "parainfluenza",
@@ -88,7 +88,7 @@
   "img": "../../assets/images/doberman_2.jpg"
 }, {
   "id": "pet_9",
-  "name": "Charlie ",
+  "name": "Luna ",
   "breed": "Doberman",
   "description": "I am a happy, playful girl who will make you laugh and smile. She forms a bond quickly and will make a loyal companion and a wonderful family dog or a good companion for a single individual too since she likes to hang out and be with her human.",
   "inoculations": "none",
@@ -198,7 +198,7 @@
   "img": "../../assets/images/maine_3.jpg"
 }, {
   "id": "pet_19",
-  "name": "Barney ",
+  "name": "Jade ",
   "breed": "Jack Russell Terrier",
   "description": "Jennifer is a sweet 2 months old Labrador that is patiently waiting to find a new forever home. This girl really enjoys being able to go outside to run and play, but would not hesitate to play up a storm in the house if she has all of her favorite toys.",
   "inoculations": "parainfluenza",
@@ -209,7 +209,7 @@
   "img": "../../assets/images/jack_6.jpg"
 }, {
   "id": "pet_20",
-  "name": "Riley ",
+  "name": "Hank ",
   "breed": "British Shorthair",
   "description": "She is the perfect combination of silly and sweet. She is eager to please, loves her human and dog companions, and believes she is a professional MMA wrestler in her spare time.",
   "inoculations": "none",
@@ -297,7 +297,7 @@
   "img": "../../assets/images/maine_4.jpg"
 }, {
   "id": "pet_28",
-  "name": "Charlie ",
+  "name": "Lola ",
   "breed": "Maine Coon",
   "description": "She is the perfect combination of silly and sweet. She is eager to please, loves her human and dog companions, and believes she is a professional MMA wrestler in her spare time.",
   "inoculations": "adenovirus",
@@ -363,7 +363,7 @@
   "img": "../../assets/images/maine_1.jpg"
 }, {
   "id": "pet_34",
-  "name": "Bella",
+  "name": "Coco ",
   "breed": "Labrador",
   "description": "I am here and I am looking for my forever home to live out the best years of my life. I am full of energy. Everyday I am learning new things, like how to walk on a leash, go potty outside, bark and play with toys and I still need some practice.",
   "inoculations": "viral rhinotracheitis",
@@ -418,7 +418,7 @@
   "img": "../../assets/images/jack_6.jpg"
 }, {
   "id": "pet_39",
-  "name": "Lulu ",
+  "name": "Thor ",
   "breed": "Labrador",
   "description": "I am a happy, playful girl who will make you laugh and smile. She forms a bond quickly and will make a loyal companion and a wonderful family dog or a good companion for a single individual too since she likes to hang out and be with her human.",
   "inoculations": "panleukopenia",
@@ -495,7 +495,7 @@
   "img": "../../assets/images/maine_3.jpg"
 }, {
   "id": "pet_46",
-  "name": "Oliver ",
+  "name": "Max ",
   "breed": "Labrador",
   "description": "This cute gay likes adults and kids. He isn’t fond of many other dogs, so he might do best in a single dog home. He has lots of energy, and loves to run and play. We think a fenced yard would make him very happy.",
   "inoculations": "none",
